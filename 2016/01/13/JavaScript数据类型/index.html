@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JavaScript数据类型 | Andy的github博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、基本类型基本类型包括(Number,Boolean,Null,Undefined,String)。undefined类型和null类型都只有一个值，就是undefined和null。基本类型变量存在栈内存中的值就是变量值，所以赋值变量的时候实际上复制的是变量的值。var a=1;
+var b=a;
+b=2;
+console.log(a);     //1
+console.log(b);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数据类型">
+<meta property="og:url" content="http://yoursite.com/2016/01/13/JavaScript数据类型/index.html">
+<meta property="og:site_name" content="Andy的github博客">
+<meta property="og:description" content="一、基本类型基本类型包括(Number,Boolean,Null,Undefined,String)。undefined类型和null类型都只有一个值，就是undefined和null。基本类型变量存在栈内存中的值就是变量值，所以赋值变量的时候实际上复制的是变量的值。var a=1;
+var b=a;
+b=2;
+console.log(a);     //1
+console.log(b);">
+<meta property="og:image" content="http://i.imgur.com/smwN5Hm.png">
+<meta property="og:image" content="http://i.imgur.com/JCMkylH.png">
+<meta property="og:updated_time" content="2016-01-13T13:14:27.532Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript数据类型">
+<meta name="twitter:description" content="一、基本类型基本类型包括(Number,Boolean,Null,Undefined,String)。undefined类型和null类型都只有一个值，就是undefined和null。基本类型变量存在栈内存中的值就是变量值，所以赋值变量的时候实际上复制的是变量的值。var a=1;
+var b=a;
+b=2;
+console.log(a);     //1
+console.log(b);">
+  
+    <link rel="alternative" href="/atom.xml" title="Andy的github博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+#你的百度统计代码
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Andy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/noticeZhou" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/3917192604/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">哈尔滨工业大学,计算机科学与技术学院2013级,前端爱好者，正在为成为一名合格的前端攻城狮奋斗着</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Andy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Andy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/noticeZhou" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/3917192604/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JavaScript数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/JavaScript数据类型/" class="article-date">
+  	<time datetime="2016-01-13T13:05:15.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript数据类型
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="u4E00_u3001_u57FA_u672C_u7C7B_u578B"><a href="#u4E00_u3001_u57FA_u672C_u7C7B_u578B" class="headerlink" title="一、基本类型"></a>一、基本类型</h4><h6 id="u57FA_u672C_u7C7B_u578B_u5305_u62EC_28Number_2CBoolean_2CNull_2CUndefined_2CString_29_u3002undefined_u7C7B_u578B_u548Cnull_u7C7B_u578B_u90FD_u53EA_u6709_u4E00_u4E2A_u503C_uFF0C_u5C31_u662Fundefined_u548Cnull_u3002_u57FA_u672C_u7C7B_u578B_u53D8_u91CF_u5B58_u5728_u6808_u5185_u5B58_u4E2D_u7684_u503C_u5C31_u662F_u53D8_u91CF_u503C_uFF0C_u6240_u4EE5_u8D4B_u503C_u53D8_u91CF_u7684_u65F6_u5019_u5B9E_u9645_u4E0A_u590D_u5236_u7684_u662F_u53D8_u91CF_u7684_u503C_u3002"><a href="#u57FA_u672C_u7C7B_u578B_u5305_u62EC_28Number_2CBoolean_2CNull_2CUndefined_2CString_29_u3002undefined_u7C7B_u578B_u548Cnull_u7C7B_u578B_u90FD_u53EA_u6709_u4E00_u4E2A_u503C_uFF0C_u5C31_u662Fundefined_u548Cnull_u3002_u57FA_u672C_u7C7B_u578B_u53D8_u91CF_u5B58_u5728_u6808_u5185_u5B58_u4E2D_u7684_u503C_u5C31_u662F_u53D8_u91CF_u503C_uFF0C_u6240_u4EE5_u8D4B_u503C_u53D8_u91CF_u7684_u65F6_u5019_u5B9E_u9645_u4E0A_u590D_u5236_u7684_u662F_u53D8_u91CF_u7684_u503C_u3002" class="headerlink" title="基本类型包括(Number,Boolean,Null,Undefined,String)。undefined类型和null类型都只有一个值，就是undefined和null。基本类型变量存在栈内存中的值就是变量值，所以赋值变量的时候实际上复制的是变量的值。"></a>基本类型包括(Number,Boolean,Null,Undefined,String)。undefined类型和null类型都只有一个值，就是undefined和null。基本类型变量存在栈内存中的值就是变量值，所以赋值变量的时候实际上复制的是变量的值。</h6><pre><code>var a=1;
+var b=a;
+b=2;
+console.log(a);     //1
+console.log(b);     //2
+</code></pre><h6 id="u56E0_u4E3A_u57FA_u672C_u7C7B_u578B_u5728_u6808_u5185_u5B58_u4E2D_u5B58_u7684_u662F_u503C_uFF0Ccopy_u7684_u65F6_u5019copy_u7684_u662F_u53D8_u91CF_u503C_uFF0C_u56E0_u6B64_u540E_u9762_u6539_u53D8b_u7684_u503C_u5E76_u4E0D_u4F1A_u5F71_u54CDa_u7684_u503C"><a href="#u56E0_u4E3A_u57FA_u672C_u7C7B_u578B_u5728_u6808_u5185_u5B58_u4E2D_u5B58_u7684_u662F_u503C_uFF0Ccopy_u7684_u65F6_u5019copy_u7684_u662F_u53D8_u91CF_u503C_uFF0C_u56E0_u6B64_u540E_u9762_u6539_u53D8b_u7684_u503C_u5E76_u4E0D_u4F1A_u5F71_u54CDa_u7684_u503C" class="headerlink" title="因为基本类型在栈内存中存的是值，copy的时候copy的是变量值，因此后面改变b的值并不会影响a的值"></a>因为基本类型在栈内存中存的是值，copy的时候copy的是变量值，因此后面改变b的值并不会影响a的值</h6><p><img src="http://i.imgur.com/smwN5Hm.png" alt=""><br><a id="more"></a></p>
+<h3 id="u4E8C_u3001_u5F15_u7528_u7C7B_u578B"><a href="#u4E8C_u3001_u5F15_u7528_u7C7B_u578B" class="headerlink" title="二、引用类型"></a>二、引用类型</h3><h4 id="2-1-1_u3001_u5F15_u7528_u7C7B_u578B_u4E0E_u57FA_u672C_u7C7B_u578B_u5B58_u50A8_u7684_u5DEE_u5F02"><a href="#2-1-1_u3001_u5F15_u7528_u7C7B_u578B_u4E0E_u57FA_u672C_u7C7B_u578B_u5B58_u50A8_u7684_u5DEE_u5F02" class="headerlink" title="2.1.1、引用类型与基本类型存储的差异"></a>2.1.1、引用类型与基本类型存储的差异</h4><h6 id="u57FA_u672C_u7C7B_u578B_u7684_u503C_u4FDD_u5B58_u5728_u6808_u5185_u5B58_u4E2D_uFF0C_u5373_u6808_u5185_u5B58_u91CC_u9762_u5B58_u7684_u662F_u4E00_u4E2A_u4E2A_u7684_u53D8_u91CF_u503C_u3002_u800C_u5F15_u7528_u7C7B_u578B_u503C_u6307_u7684_u662F_u90A3_u4E9B_u4FDD_u5B58_u5728_u5806_u5185_u5B58_u4E2D_u7684_u5BF9_u8C61_uFF0C_u5373_u5B58_u5728_u6808_u5185_u5B58_u4E2D_u7684_u662F_u6307_u9488_uFF0C_u6307_u5411_u5806_u5185_u5B58_u4E2D_u7684_u5BF9_u8C61_u3002"><a href="#u57FA_u672C_u7C7B_u578B_u7684_u503C_u4FDD_u5B58_u5728_u6808_u5185_u5B58_u4E2D_uFF0C_u5373_u6808_u5185_u5B58_u91CC_u9762_u5B58_u7684_u662F_u4E00_u4E2A_u4E2A_u7684_u53D8_u91CF_u503C_u3002_u800C_u5F15_u7528_u7C7B_u578B_u503C_u6307_u7684_u662F_u90A3_u4E9B_u4FDD_u5B58_u5728_u5806_u5185_u5B58_u4E2D_u7684_u5BF9_u8C61_uFF0C_u5373_u5B58_u5728_u6808_u5185_u5B58_u4E2D_u7684_u662F_u6307_u9488_uFF0C_u6307_u5411_u5806_u5185_u5B58_u4E2D_u7684_u5BF9_u8C61_u3002" class="headerlink" title="基本类型的值保存在栈内存中，即栈内存里面存的是一个个的变量值。而引用类型值指的是那些保存在堆内存中的对象，即存在栈内存中的是指针，指向堆内存中的对象。"></a>基本类型的值保存在栈内存中，即栈内存里面存的是一个个的变量值。而引用类型值指的是那些保存在堆内存中的对象，即存在栈内存中的是指针，指向堆内存中的对象。</h6><p><img src="http://i.imgur.com/JCMkylH.png" alt=""></p>
+<h4 id="2-1-2_u3001_u5BF9_u8C61"><a href="#2-1-2_u3001_u5BF9_u8C61" class="headerlink" title="2.1.2、对象"></a>2.1.2、对象</h4><h6 id="1_u3001_u5BF9_u8C61_u6709_u4E24_u79CD_u5B9A_u4E49_u65B9_u5F0F_u3002_u4E00_u79CD_u662F_u4F7F_u7528_u6784_u9020_u51FD_u6570_uFF0C_u8FD8_u6709_u4E00_u79CD_u662F_u5B57_u9762_u91CF_u8868_u793A_u6CD5"><a href="#1_u3001_u5BF9_u8C61_u6709_u4E24_u79CD_u5B9A_u4E49_u65B9_u5F0F_u3002_u4E00_u79CD_u662F_u4F7F_u7528_u6784_u9020_u51FD_u6570_uFF0C_u8FD8_u6709_u4E00_u79CD_u662F_u5B57_u9762_u91CF_u8868_u793A_u6CD5" class="headerlink" title="1、对象有两种定义方式。一种是使用构造函数，还有一种是字面量表示法"></a>1、对象有两种定义方式。一种是使用构造函数，还有一种是字面量表示法</h6><h6 id="2_u3001_u6709_u4E24_u79CD_u65B9_u5F0F_u53EF_u4EE5_u8BBF_u95EE_u5BF9_u8C61_u5C5E_u6027_u3002_u4E00_u79CD_u662F_u4F7F_u7528_u70B9_u8868_u793A_u6CD5_uFF0C_u4E00_u79CD_u662F_u4F7F_u7528_u65B9_u62EC_u53F7_u8868_u793A_u6CD5_u3002_u5728_u4F7F_u7528_u65B9_u62EC_u53F7_u8868_u793A_u6CD5_u65F6_uFF0C_u65B9_u62EC_u53F7_u5185_u5FC5_u987B_u662F_u5B57_u7B26_u4E32_u3002_u56E0_u6B64_u53EF_u4EE5_u901A_u8FC7_u53D8_u91CF_u6765_u8BBF_u95EE_u5BF9_u8C61_u7684_u5C5E_u6027_uFF0C_u800C_u70B9_u8868_u793A_u6CD5_u4E0D_u884C_u3002"><a href="#2_u3001_u6709_u4E24_u79CD_u65B9_u5F0F_u53EF_u4EE5_u8BBF_u95EE_u5BF9_u8C61_u5C5E_u6027_u3002_u4E00_u79CD_u662F_u4F7F_u7528_u70B9_u8868_u793A_u6CD5_uFF0C_u4E00_u79CD_u662F_u4F7F_u7528_u65B9_u62EC_u53F7_u8868_u793A_u6CD5_u3002_u5728_u4F7F_u7528_u65B9_u62EC_u53F7_u8868_u793A_u6CD5_u65F6_uFF0C_u65B9_u62EC_u53F7_u5185_u5FC5_u987B_u662F_u5B57_u7B26_u4E32_u3002_u56E0_u6B64_u53EF_u4EE5_u901A_u8FC7_u53D8_u91CF_u6765_u8BBF_u95EE_u5BF9_u8C61_u7684_u5C5E_u6027_uFF0C_u800C_u70B9_u8868_u793A_u6CD5_u4E0D_u884C_u3002" class="headerlink" title="2、有两种方式可以访问对象属性。一种是使用点表示法，一种是使用方括号表示法。在使用方括号表示法时，方括号内必须是字符串。因此可以通过变量来访问对象的属性，而点表示法不行。"></a>2、有两种方式可以访问对象属性。一种是使用点表示法，一种是使用方括号表示法。在使用方括号表示法时，方括号内必须是字符串。因此可以通过变量来访问对象的属性，而点表示法不行。</h6><h4 id="2-2-1_u3001_u51FD_u6570_u3002_u51FD_u6570_u5B9E_u8D28_u4E0A_u662F_u4E00_u4E2A_u5BF9_u8C61_uFF0C_u800C_u51FD_u6570_u540D_u662F_u4E00_u4E2A_u6307_u5411_u5806_u5185_u5B58_u4E2D_u51FD_u6570_u4F53_u7684_u6307_u9488_uFF0C_u56E0_u6B64_u51FD_u6570_u590D_u5236_uFF0C_u590D_u5236_u7684_u662F_u51FD_u6570_u540D_uFF0C_u662F_u6307_u5411_u51FD_u6570_u7684_u6307_u9488_u3002"><a href="#2-2-1_u3001_u51FD_u6570_u3002_u51FD_u6570_u5B9E_u8D28_u4E0A_u662F_u4E00_u4E2A_u5BF9_u8C61_uFF0C_u800C_u51FD_u6570_u540D_u662F_u4E00_u4E2A_u6307_u5411_u5806_u5185_u5B58_u4E2D_u51FD_u6570_u4F53_u7684_u6307_u9488_uFF0C_u56E0_u6B64_u51FD_u6570_u590D_u5236_uFF0C_u590D_u5236_u7684_u662F_u51FD_u6570_u540D_uFF0C_u662F_u6307_u5411_u51FD_u6570_u7684_u6307_u9488_u3002" class="headerlink" title="2.2.1、函数。函数实质上是一个对象，而函数名是一个指向堆内存中函数体的指针，因此函数复制，复制的是函数名，是指向函数的指针。"></a>2.2.1、函数。函数实质上是一个对象，而函数名是一个指向堆内存中函数体的指针，因此函数复制，复制的是函数名，是指向函数的指针。</h4><pre><code>function sum(num1,num2){
+    return num1+num2;
+}
+console.log(sum(10,10));   //20
+
+var anotherSum = sum;
+console.log(anotherSum(10,10));//20
+sum=null;
+
+console.log(anotherSum(10,10)); //20
+console.log(sum(10,10));//报错，此时sum已经不是一个函数
+//栈内存里面的内容已经变成了null，sum已经被回收但是anoither()依旧指向堆内存中的函数体
+</code></pre><h6 id="u53EF_u4EE5_u770B_u5230anotherSum_28_29_u8DDFsum_28_29_u6307_u5411_u4E86_u540C_u4E00_u4E2A_u51FD_u6570_uFF0CanotherSum_28_29_u4E5F_u53EF_u4EE5_u88AB_u8C03_u7528_u5E76_u8FD4_u56DE_u7ED3_u679C_u3002_u56E0_u6B64_uFF0C_u8981_u514B_u9686_u4E00_u4E2A_u51FD_u6570_u53EA_u9700_u8981_u7528_u201D_3D_u201D_u53F7_u5C06_u6E90_u51FD_u6570_u540Dcopy_u5230_u76EE_u6807_u51FD_u6570_u540D_u5C31_u597D_u4E86_uFF0C_u5373_u628A_u76EE_u6807_u51FD_u6570_u6307_u5411_u6E90_u51FD_u6570_u3002"><a href="#u53EF_u4EE5_u770B_u5230anotherSum_28_29_u8DDFsum_28_29_u6307_u5411_u4E86_u540C_u4E00_u4E2A_u51FD_u6570_uFF0CanotherSum_28_29_u4E5F_u53EF_u4EE5_u88AB_u8C03_u7528_u5E76_u8FD4_u56DE_u7ED3_u679C_u3002_u56E0_u6B64_uFF0C_u8981_u514B_u9686_u4E00_u4E2A_u51FD_u6570_u53EA_u9700_u8981_u7528_u201D_3D_u201D_u53F7_u5C06_u6E90_u51FD_u6570_u540Dcopy_u5230_u76EE_u6807_u51FD_u6570_u540D_u5C31_u597D_u4E86_uFF0C_u5373_u628A_u76EE_u6807_u51FD_u6570_u6307_u5411_u6E90_u51FD_u6570_u3002" class="headerlink" title="可以看到anotherSum()跟sum()指向了同一个函数，anotherSum()也可以被调用并返回结果。因此，要克隆一个函数只需要用”=”号将源函数名copy到目标函数名就好了，即把目标函数指向源函数。"></a>可以看到anotherSum()跟sum()指向了同一个函数，anotherSum()也可以被调用并返回结果。因此，要克隆一个函数只需要用”=”号将源函数名copy到目标函数名就好了，即把目标函数指向源函数。</h6><h5 id="2-2-2_u3001js_u51FD_u6570_u6CA1_u6709_u91CD_u8F7D_uFF0C_u82E5_u5B58_u5728_u4E24_u4E2A_u540C_u540D_u51FD_u6570_uFF0C_u540E_u9762_u7684_u51FD_u6570_u4F1A_u8986_u76D6_u524D_u9762_u7684_u3002_u5C31_u50CF_u8FD9_u6837"><a href="#2-2-2_u3001js_u51FD_u6570_u6CA1_u6709_u91CD_u8F7D_uFF0C_u82E5_u5B58_u5728_u4E24_u4E2A_u540C_u540D_u51FD_u6570_uFF0C_u540E_u9762_u7684_u51FD_u6570_u4F1A_u8986_u76D6_u524D_u9762_u7684_u3002_u5C31_u50CF_u8FD9_u6837" class="headerlink" title="2.2.2、js函数没有重载，若存在两个同名函数，后面的函数会覆盖前面的。就像这样"></a>2.2.2、js函数没有重载，若存在两个同名函数，后面的函数会覆盖前面的。就像这样</h5><pre><code>function sum(num1,num2){
+    return num1+num2;
+}
+console.log(sum(10,10));   //0
+
+var anotherSum = sum;
+console.log(anotherSum(10,10));//0
+function sum(){
+    return 0;
+}
+
+console.log(anotherSum(10,10)); //0
+console.log(sum(10,10));//0
+</code></pre><h6 id="u540E_u9762_u7684sum_u51FD_u6570_u5C06_u524D_u9762_u7684_u8986_u76D6_uFF0C_u56E0_u6B64_u8C03_u7528sum_28_29_u51FD_u6570_u8FD4_u56DE_u7684_u503C_u90FD_u662F0-_u8FD9_u91CC_u4E5F_u53EF_u4EE5_u9A8C_u8BC1_u4E0A_u9762_u6240_u8BF4_uFF0C_u590D_u5236_u7684_u662F_u6307_u5411_u51FD_u6570_u4F53_u7684_u6307_u9488_u3002_u6307_u5411_u7684_u662Fsum_28_29_u51FD_u6570_u7684_u5185_u5BB9_u3002_u90A3_u8FD9_u4E0D_u662F_u6DF1_u62F7_u8D1D_u554A_uFF01_uFF01_uFF01_u522B_u6025_uFF0C_u770B_u4E0B_u9762"><a href="#u540E_u9762_u7684sum_u51FD_u6570_u5C06_u524D_u9762_u7684_u8986_u76D6_uFF0C_u56E0_u6B64_u8C03_u7528sum_28_29_u51FD_u6570_u8FD4_u56DE_u7684_u503C_u90FD_u662F0-_u8FD9_u91CC_u4E5F_u53EF_u4EE5_u9A8C_u8BC1_u4E0A_u9762_u6240_u8BF4_uFF0C_u590D_u5236_u7684_u662F_u6307_u5411_u51FD_u6570_u4F53_u7684_u6307_u9488_u3002_u6307_u5411_u7684_u662Fsum_28_29_u51FD_u6570_u7684_u5185_u5BB9_u3002_u90A3_u8FD9_u4E0D_u662F_u6DF1_u62F7_u8D1D_u554A_uFF01_uFF01_uFF01_u522B_u6025_uFF0C_u770B_u4E0B_u9762" class="headerlink" title="后面的sum函数将前面的覆盖，因此调用sum()函数返回的值都是0.这里也可以验证上面所说，复制的是指向函数体的指针。指向的是sum()函数的内容。那这不是深拷贝啊！！！别急，看下面"></a>后面的sum函数将前面的覆盖，因此调用sum()函数返回的值都是0.这里也可以验证上面所说，复制的是指向函数体的指针。指向的是sum()函数的内容。那这不是深拷贝啊！！！别急，看下面</h6><pre><code>var sum=function(num1,num2){
+    return num1+num2;
+}
+console.log(sum(10,10));   //20
+
+var anotherSum = sum;
+//此时anotherSum指向的是sum的函数体，因为程序还没有执行到anotherSum函数的声明
+console.log(anotherSum(10,10));//20
+anotherSum=function(num1,num2){
+    return 0;
+}
+
+console.log(anotherSum(10,10)); //0
+console.log(sum(10,10));//20
+</code></pre><h6 id="u4E3A_u4EC0_u4E48_u8FD9_u91CC_u5C31_u53EF_u4EE5_u5B9E_u73B0_u6DF1_u62F7_u8D1D_u5462_uFF1F_u5148_u770B_u770Bjavascript_u7684_u51FD_u6570_u58F0_u660E_u548C_u51FD_u6570_u8868_u8FBE_u5F0F_uFF1A"><a href="#u4E3A_u4EC0_u4E48_u8FD9_u91CC_u5C31_u53EF_u4EE5_u5B9E_u73B0_u6DF1_u62F7_u8D1D_u5462_uFF1F_u5148_u770B_u770Bjavascript_u7684_u51FD_u6570_u58F0_u660E_u548C_u51FD_u6570_u8868_u8FBE_u5F0F_uFF1A" class="headerlink" title="为什么这里就可以实现深拷贝呢？先看看javascript的函数声明和函数表达式："></a>为什么这里就可以实现深拷贝呢？先看看javascript的函数声明和函数表达式：</h6><h4 id="4_u3001_u89E3_u6790_u5668_u5728_u5411_u6267_u884C_u73AF_u5883_u52A0_u8F7D_u6570_u636E_u65F6_uFF0C_u4F1A_u7387_u5148_u8BFB_u53D6_u51FD_u6570_u58F0_u660E_uFF0C_u5E76_u8BA9_u5B83_u5728_u6267_u884C_u4EFB_u4F55_u4EE3_u7801_u4E4B_u524D_u53EF_u4EE5_u8BBF_u95EE_u3002_u81F3_u4E8E_u51FD_u6570_u8868_u8FBE_u5F0F_uFF0C_u5FC5_u987B_u7B49_u5230_u6267_u884C_u51FD_u6570_u4F53_u65F6_u624D_u4F1A_u771F_u6B63_u7684_u88AB_u6267_u884C_u3002"><a href="#4_u3001_u89E3_u6790_u5668_u5728_u5411_u6267_u884C_u73AF_u5883_u52A0_u8F7D_u6570_u636E_u65F6_uFF0C_u4F1A_u7387_u5148_u8BFB_u53D6_u51FD_u6570_u58F0_u660E_uFF0C_u5E76_u8BA9_u5B83_u5728_u6267_u884C_u4EFB_u4F55_u4EE3_u7801_u4E4B_u524D_u53EF_u4EE5_u8BBF_u95EE_u3002_u81F3_u4E8E_u51FD_u6570_u8868_u8FBE_u5F0F_uFF0C_u5FC5_u987B_u7B49_u5230_u6267_u884C_u51FD_u6570_u4F53_u65F6_u624D_u4F1A_u771F_u6B63_u7684_u88AB_u6267_u884C_u3002" class="headerlink" title="4、解析器在向执行环境加载数据时，会率先读取函数声明，并让它在执行任何代码之前可以访问。至于函数表达式，必须等到执行函数体时才会真正的被执行。"></a>4、解析器在向执行环境加载数据时，会率先读取函数声明，并让它在执行任何代码之前可以访问。至于函数表达式，必须等到执行函数体时才会真正的被执行。</h4><pre><code>console.log(sum(10,10));
+function sum(num1,num2){
+    return num1+num2;
+}
+</code></pre><h6 id="u6BD4_u5982_u8BF4_u8FD9_u4E2A_u51FD_u6570_uFF0C_u5728_u4EE3_u7801_u6267_u884C_u4E4B_u524D_uFF0C_u89E3_u6790_u5668_u5C31_u628A_u51FD_u6570_u58F0_u660E_u52A0_u8F7D_u5230_u6267_u884C_u73AF_u5883_u4E2D_uFF0C_u8FD9_u6837_u54EA_u6015_u662F_u5728_u51FD_u6570_u4E4B_u524D_u7684_u4EE3_u7801_u8C03_u7528_u8BE5_u51FD_u6570_u4E00_u6837_u53EF_u4EE5_u6B63_u5E38_u8FDB_u884C_u3002_u4F46_u662F_u50CF_u4E0B_u9762_u7684_u4EE3_u7801_u5728_u67D0_u4E9B_u65F6_u5019_u53EF_u80FD_u51FA_u9519"><a href="#u6BD4_u5982_u8BF4_u8FD9_u4E2A_u51FD_u6570_uFF0C_u5728_u4EE3_u7801_u6267_u884C_u4E4B_u524D_uFF0C_u89E3_u6790_u5668_u5C31_u628A_u51FD_u6570_u58F0_u660E_u52A0_u8F7D_u5230_u6267_u884C_u73AF_u5883_u4E2D_uFF0C_u8FD9_u6837_u54EA_u6015_u662F_u5728_u51FD_u6570_u4E4B_u524D_u7684_u4EE3_u7801_u8C03_u7528_u8BE5_u51FD_u6570_u4E00_u6837_u53EF_u4EE5_u6B63_u5E38_u8FDB_u884C_u3002_u4F46_u662F_u50CF_u4E0B_u9762_u7684_u4EE3_u7801_u5728_u67D0_u4E9B_u65F6_u5019_u53EF_u80FD_u51FA_u9519" class="headerlink" title="比如说这个函数，在代码执行之前，解析器就把函数声明加载到执行环境中，这样哪怕是在函数之前的代码调用该函数一样可以正常进行。但是像下面的代码在某些时候可能出错"></a>比如说这个函数，在代码执行之前，解析器就把函数声明加载到执行环境中，这样哪怕是在函数之前的代码调用该函数一样可以正常进行。但是像下面的代码在某些时候可能出错</h6><pre><code>console.log(sum(10,10));
+var sum=function(num1,num2){
+    return num1+num2;
+}
+</code></pre><h6 id="u8FD9_u79CD_u65B9_u5F0F_u4F1A_u51FA_u73B0_u9519_u8BEF_u662F_u56E0_u4E3A_u51FD_u6570_u5904_u5728_u4E00_u4E2A_u521D_u59CB_u5316_u8BED_u53E5_u4E2D_uFF0C_u800C_u4E0D_u662F_u4E00_u4E2A_u51FD_u6570_u58F0_u660E_u3002_u8FD9_u6837_u7684_u8BDD_uFF0C_u5728_u7A0B_u5E8F_u6267_u884C_u5230_u8FD9_u6BB5_u4EE3_u7801_u4E4B_u524D_uFF0Csum_u4E0D_u4F1A_u51FA_u73B0_u5728_u6808_u5185_u5B58_u4E2D_u3002_u56E0_u6B64_u4F1A_u5BFC_u81F4_28_u610F_u5916_u6807_u8BC6_u7B26_29_u9519_u8BEF_u3002"><a href="#u8FD9_u79CD_u65B9_u5F0F_u4F1A_u51FA_u73B0_u9519_u8BEF_u662F_u56E0_u4E3A_u51FD_u6570_u5904_u5728_u4E00_u4E2A_u521D_u59CB_u5316_u8BED_u53E5_u4E2D_uFF0C_u800C_u4E0D_u662F_u4E00_u4E2A_u51FD_u6570_u58F0_u660E_u3002_u8FD9_u6837_u7684_u8BDD_uFF0C_u5728_u7A0B_u5E8F_u6267_u884C_u5230_u8FD9_u6BB5_u4EE3_u7801_u4E4B_u524D_uFF0Csum_u4E0D_u4F1A_u51FA_u73B0_u5728_u6808_u5185_u5B58_u4E2D_u3002_u56E0_u6B64_u4F1A_u5BFC_u81F4_28_u610F_u5916_u6807_u8BC6_u7B26_29_u9519_u8BEF_u3002" class="headerlink" title="这种方式会出现错误是因为函数处在一个初始化语句中，而不是一个函数声明。这样的话，在程序执行到这段代码之前，sum不会出现在栈内存中。因此会导致(意外标识符)错误。"></a>这种方式会出现错误是因为函数处在一个初始化语句中，而不是一个函数声明。这样的话，在程序执行到这段代码之前，sum不会出现在栈内存中。因此会导致(意外标识符)错误。</h6><p>######现在我们返过头来看函数深拷贝的问题。因为我们用变量初始化方式声明函数，这样虽然不能在代码执行之前将函数名加入执行环境，也就是栈内存中。但是这一段代码一定会被执行(如果前面代码不会出现问题的话)。因此在将sum函数复制给anotherSum函数之后，anotherSum指向sum函数体。但是在执行anotherSum函数表达式之后，anotherSum指向了anotherSum的函数体，这样就实现了深拷贝，改变了anotherSum函数的内容。而上一种方式，虽然在解析器将两个函数的声明都加载到了栈内存中，但是都没有加载函数表达式，函数表达式只有在被调用的时候才被加载到执行环境。而在函数复制之后，anotherSum跟sum是一样的，都是指向sum的函数体，因此加载的是sum的函数体，anotherSum的函数体永远都不会被加载进执行环境。</p>
+<h5 id="2-2-3_u3001_u5728_u51FD_u6570_u5185_u90E8_u6709_u4E24_u4E2A_u7279_u6B8A_u7684_u5BF9_u8C61_uFF0Cthis_u548Carguments_u3002arguments_u5176_u5B9E_u5C31_u662F_u4E00_u4E2A_u7C7B_u6570_u7EC4_u5BF9_u8C61_uFF0C_u5305_u542B_u7740_u4F20_u5165_u51FD_u6570_u4E2D_u7684_u6240_u6709_u53C2_u6570_uFF0C_u4ED6_u8FD8_u6709_u4E00_u4E2Acallee_u5C5E_u6027_uFF0C_u8FD9_u4E2A_u5C5E_u6027_u662F_u4E00_u4E2A_u6307_u9488_uFF0C_u6307_u5411_u62E5_u6709_u8FD9_u4E2Aarguments_u5BF9_u8C61_u7684_u51FD_u6570"><a href="#2-2-3_u3001_u5728_u51FD_u6570_u5185_u90E8_u6709_u4E24_u4E2A_u7279_u6B8A_u7684_u5BF9_u8C61_uFF0Cthis_u548Carguments_u3002arguments_u5176_u5B9E_u5C31_u662F_u4E00_u4E2A_u7C7B_u6570_u7EC4_u5BF9_u8C61_uFF0C_u5305_u542B_u7740_u4F20_u5165_u51FD_u6570_u4E2D_u7684_u6240_u6709_u53C2_u6570_uFF0C_u4ED6_u8FD8_u6709_u4E00_u4E2Acallee_u5C5E_u6027_uFF0C_u8FD9_u4E2A_u5C5E_u6027_u662F_u4E00_u4E2A_u6307_u9488_uFF0C_u6307_u5411_u62E5_u6709_u8FD9_u4E2Aarguments_u5BF9_u8C61_u7684_u51FD_u6570" class="headerlink" title="2.2.3、在函数内部有两个特殊的对象，this和arguments。arguments其实就是一个类数组对象，包含着传入函数中的所有参数，他还有一个callee属性，这个属性是一个指针，指向拥有这个arguments对象的函数"></a>2.2.3、在函数内部有两个特殊的对象，this和arguments。arguments其实就是一个类数组对象，包含着传入函数中的所有参数，他还有一个callee属性，这个属性是一个指针，指向拥有这个arguments对象的函数</h5><pre><code>function factorial(num){
+    if(num &lt;=1)
+        return 1;
+    else
+        return num*arguments.callee(num-1);
+    }
+var trueFactorial = factorial;
+factorial = function(){
+    return 0;
+    }
+console.log(trueFactorial(5));//120
+console.log(factorial(5));//0
+</code></pre><hr>
+<h4 id="2-3_u3001_u6570_u7EC4"><a href="#2-3_u3001_u6570_u7EC4" class="headerlink" title="2.3、数组"></a>2.3、数组</h4><h5 id="2-3-1_u3001_u8DDF_u5176_u4ED6_u8BED_u8A00_u4E0D_u540C_u7684_u662F_uFF0Cjavascript_u6570_u7EC4_u7684_u6BCF_u4E00_u9879_u53EF_u4EE5_u5B58_u4E0D_u540C_u7C7B_u578B_u7684_u6570_u636E_uFF0C_u6BD4_u5982_u7B2C_u4E00_u9879_u5B58number_u7C7B_u578B_uFF0C_u7B2C_u4E8C_u9879_u5B58string_u7C7B_u578B_u7B49_u7B49_u3002_u800C_u4E14_u6570_u7EC4_u5927_u5C0F_u53EF_u4EE5_u52A8_u6001_u8C03_u6574_u3002_u6570_u7EC4_u7684_u5B9A_u4E49"><a href="#2-3-1_u3001_u8DDF_u5176_u4ED6_u8BED_u8A00_u4E0D_u540C_u7684_u662F_uFF0Cjavascript_u6570_u7EC4_u7684_u6BCF_u4E00_u9879_u53EF_u4EE5_u5B58_u4E0D_u540C_u7C7B_u578B_u7684_u6570_u636E_uFF0C_u6BD4_u5982_u7B2C_u4E00_u9879_u5B58number_u7C7B_u578B_uFF0C_u7B2C_u4E8C_u9879_u5B58string_u7C7B_u578B_u7B49_u7B49_u3002_u800C_u4E14_u6570_u7EC4_u5927_u5C0F_u53EF_u4EE5_u52A8_u6001_u8C03_u6574_u3002_u6570_u7EC4_u7684_u5B9A_u4E49" class="headerlink" title="2.3.1、跟其他语言不同的是，javascript数组的每一项可以存不同类型的数据，比如第一项存number类型，第二项存string类型等等。而且数组大小可以动态调整。数组的定义"></a>2.3.1、跟其他语言不同的是，javascript数组的每一项可以存不同类型的数据，比如第一项存number类型，第二项存string类型等等。而且数组大小可以动态调整。数组的定义</h5><pre><code>var num=new Array();
+//或者指明数组中的数据项数
+var num=new Array(20);
+//此时数组有20个存储数据的位置，每一项数据暂时为undefined
+//还可以直接初始化数组
+var num=new Array(1,2,3);
+//这种方法是用数组的构造函数进行初始化，可以省略new
+//还可以这样
+var num = [1,2,3];
+//这种方法叫字面量表示法
+</code></pre><h5 id="2-3-2_u3001_u6570_u7EC4_u7684_u5224_u5B9A"><a href="#2-3-2_u3001_u6570_u7EC4_u7684_u5224_u5B9A" class="headerlink" title="2.3.2、数组的判定"></a>2.3.2、数组的判定</h5><h6 id="u5BF9_u4E8E_u4E00_u4E2A_u5168_u5C40_u4F5C_u7528_u57DF_u6765_u8BF4_uFF0C_u4F7F_u7528instanceof_u64CD_u4F5C_u7B26_u5C31_u80FD_u5224_u65AD_u662F_u4E0D_u662F_u4E00_u4E2A_u6570_u7EC4_uFF0C_u4F46_u662F_u5982_u679C_u7F51_u9875_u4E2D_u5305_u542B_u591A_u4E2A_u6846_u67B6_uFF0C_u90A3_u4E48_u5B9E_u9645_u4E0A_u5C31_u662F_u6709_u591A_u4E2A_u5168_u5C40_u4F5C_u7528_u57DF_uFF0C_u56E0_u6B64instanceof_u64CD_u4F5C_u7B26_u5C31_u5931_u6548_u4E86_u3002ECMAScript5_u65B0_u589E_u4E86Array-isArray_28_29_u65B9_u6CD5"><a href="#u5BF9_u4E8E_u4E00_u4E2A_u5168_u5C40_u4F5C_u7528_u57DF_u6765_u8BF4_uFF0C_u4F7F_u7528instanceof_u64CD_u4F5C_u7B26_u5C31_u80FD_u5224_u65AD_u662F_u4E0D_u662F_u4E00_u4E2A_u6570_u7EC4_uFF0C_u4F46_u662F_u5982_u679C_u7F51_u9875_u4E2D_u5305_u542B_u591A_u4E2A_u6846_u67B6_uFF0C_u90A3_u4E48_u5B9E_u9645_u4E0A_u5C31_u662F_u6709_u591A_u4E2A_u5168_u5C40_u4F5C_u7528_u57DF_uFF0C_u56E0_u6B64instanceof_u64CD_u4F5C_u7B26_u5C31_u5931_u6548_u4E86_u3002ECMAScript5_u65B0_u589E_u4E86Array-isArray_28_29_u65B9_u6CD5" class="headerlink" title="对于一个全局作用域来说，使用instanceof操作符就能判断是不是一个数组，但是如果网页中包含多个框架，那么实际上就是有多个全局作用域，因此instanceof操作符就失效了。ECMAScript5新增了Array.isArray()方法"></a>对于一个全局作用域来说，使用instanceof操作符就能判断是不是一个数组，但是如果网页中包含多个框架，那么实际上就是有多个全局作用域，因此instanceof操作符就失效了。ECMAScript5新增了Array.isArray()方法</h6><pre><code>if(Array.isArray(value){
+    //some code
+}
+//支持这个方法的浏览器有IE9+,Firefox4+,Safari 5+,Opera 10.5+,chrome
+</code></pre><h5 id="2-3-2_u3001_u6570_u7EC4_u7684_u65B9_u6CD5"><a href="#2-3-2_u3001_u6570_u7EC4_u7684_u65B9_u6CD5" class="headerlink" title="2.3.2、数组的方法"></a>2.3.2、数组的方法</h5><pre><code>toString(),valueOf().返回数组中每个值的字符串形式拼接而成的一个用逗号分隔开的字符串
+var num=[1,2,3];
+console.log(num.toString()); //1,2,3
+console.log(num.valueOf()); //1,2,3
+num[10]=4;
+//下标从4到8的值都为undefined
+console.log(num.toString());//1,2,3,,,,,,4
+
+pop(),跟数据结构里面栈的方法一样，移除掉数组里面的最后一个数据
+push()，往数组的末尾添加若干个数据并返回当前数组长度
+var num=[1,2,3];
+num.push(4,6);
+console.log(num.length);//5
+var item=num.pop();
+console.log(item) //6
+console.log(num.length);//4
+
+shift().队列方法，取出数组中的第一项
+unshift(),在数组的最前面加入若干项，并返回当前数组长度
+
+sort()，对数组项先调用toString()进行转型，然后再比较大小
+reverse(),对数组项的顺序进行反转,返回值都是数组
+var num=[0,1,5,10,15];
+num.sort();
+console.log(num);//0,1,10,15,5
+发现这样不对，因为它是按字符串大小进行比较，所以“10”&lt;“5”
+为了解决这个问题，sort()允许将一个函数作为参数
+
+function compare(value1,value2){
+    return value1-value2;
+}
+num.sort(compare);
+console.log(num);//0,1,5,10,15
+</code></pre><h5 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h5><pre><code>concat()方法会先将当前数组copy一份到新数组中，然后将接收到的参数也一并添加到新数组中
+var num1=[1,2,3];
+var num2=[6,7,8];
+var num3=num1.concat(10,15,num2);
+console.log(num3);//1,2,3,10,15,6,7,8
+</code></pre><h5 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h5><pre><code>slice(start,end),接收两个参数，将start位置到end位置之间的所有数据放到新数组中(不包括end项)。如果只有一个参数，则是取这个参数到数组的最末尾(包含最后一项)
+var num1=[1,2,3];
+var num2=num1.slice(1);
+console.log(num1);//1,2,3   原数组不变
+console.log(num2);//2,3
+//如果参数中有负数，则用数组长度加上该数来确定位置。如果结束位置小于开始位置，则返回空数组
+</code></pre><h5 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h5><pre><code>splice(start,number,added),start表示起始位置，number表示要删除的项数，added表示要往数组中添加的数组项，可以有很多项。返回值是原数组中删除的那些数组项。
+
+var num1=[1,2,3];
+var num2=num1.splice(1,1,4,5,6);//从位置1开始，删除1项，往数组num1中添加4,5,6
+console.log(num1);  //1,4,5,6,3
+console.log(num2);  //2
+</code></pre><h5 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h5><pre><code>indexOf(search,fromIdex)，fromIdex默认为0，查找从fromIdex开始到数组结束，search在数组中的位置
+lastIndexOf()从数组末尾开始向前找
+map(callBack)，返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组
+</code></pre><h5 id="2-4_u3001Date_u7C7B_u578B"><a href="#2-4_u3001Date_u7C7B_u578B" class="headerlink" title="2.4、Date类型"></a>2.4、Date类型</h5><h5 id="2-5_u3001RegExp_u7C7B_u578B"><a href="#2-5_u3001RegExp_u7C7B_u578B" class="headerlink" title="2.5、RegExp类型"></a>2.5、RegExp类型</h5><h6 id="2-5-1_u3001_u6B63_u5219_u8868_u8FBE_u5F0F_u7684_u5339_u914D_u6A21_u5F0F_u652F_u63013_u4E2A_u6807_u5FD7_uFF1A"><a href="#2-5-1_u3001_u6B63_u5219_u8868_u8FBE_u5F0F_u7684_u5339_u914D_u6A21_u5F0F_u652F_u63013_u4E2A_u6807_u5FD7_uFF1A" class="headerlink" title="2.5.1、正则表达式的匹配模式支持3个标志："></a>2.5.1、正则表达式的匹配模式支持3个标志：</h6><pre><code>g----全局模式。模式将应用在所有字符串中，而非在发现第一个匹配后就停止
+i----不区分大小写模式。忽略模式与字符串之间的大小写差异
+m----多行模式。即在匹配完第一行后不停止匹配
+
+元字符：  ( [ { \ ^ $ | ? * + . } ] )
+如果要匹配字符串中包含这些字符就必须对他们进行转义
+</code></pre><h5 id="2-6_u51FD_u6570_u7684_u6309_u503C_u4F20_u53C2"><a href="#2-6_u51FD_u6570_u7684_u6309_u503C_u4F20_u53C2" class="headerlink" title="2.6函数的按值传参"></a>2.6函数的按值传参</h5><h6 id="JavaScript_u5728_u5411_u53C2_u6570_u4F20_u503C_u65F6_u662F_u6309_u503C_u4F20_u9012_u7684_uFF0C_u53EF_u4EE5_u628A_u51FD_u6570_u7684_u53C2_u6570_u770B_u6210_u662F_u51FD_u6570_u7684_u5C40_u90E8_u53D8_u91CF_uFF0C_u5982_u679C_u662F_u57FA_u672C_u7C7B_u578B_u503C_u5C31_u662F_u76F4_u63A5_u590D_u5236_uFF0C_u5982_u679C_u662F_u5F15_u7528_u7C7B_u578B_u503C_u5219_u662F_u50CF_u5F15_u7528_u7C7B_u578B_u7684_u590D_u5236_u90A3_u6837_u590D_u5236_u3002"><a href="#JavaScript_u5728_u5411_u53C2_u6570_u4F20_u503C_u65F6_u662F_u6309_u503C_u4F20_u9012_u7684_uFF0C_u53EF_u4EE5_u628A_u51FD_u6570_u7684_u53C2_u6570_u770B_u6210_u662F_u51FD_u6570_u7684_u5C40_u90E8_u53D8_u91CF_uFF0C_u5982_u679C_u662F_u57FA_u672C_u7C7B_u578B_u503C_u5C31_u662F_u76F4_u63A5_u590D_u5236_uFF0C_u5982_u679C_u662F_u5F15_u7528_u7C7B_u578B_u503C_u5219_u662F_u50CF_u5F15_u7528_u7C7B_u578B_u7684_u590D_u5236_u90A3_u6837_u590D_u5236_u3002" class="headerlink" title="JavaScript在向参数传值时是按值传递的，可以把函数的参数看成是函数的局部变量，如果是基本类型值就是直接复制，如果是引用类型值则是像引用类型的复制那样复制。"></a>JavaScript在向参数传值时是按值传递的，可以把函数的参数看成是函数的局部变量，如果是基本类型值就是直接复制，如果是引用类型值则是像引用类型的复制那样复制。</h6><pre><code>function setName(obj) {
+    obj.name = &quot;rose&quot;;
+    obj = new Object();
+    obj.name = &quot;andy&quot;;
+}
+
+var person = new Object();
+setName(person);
+console.log(person.name);  //rose
+</code></pre><h6 id="u4ECE_u4E0A_u9762_u7684_u8FD9_u4E2A_u4F8B_u5B50_u4E2D_u53EF_u4EE5_u770B_u5F97_u51FA_u6765_uFF0C_u5982_u679C_u662F_u6309_u5F15_u7528_u4F20_u9012_uFF0C_u90A3_u4E48_u6700_u540E_u80AF_u5B9A_u4F1A_u6307_u5411_u201Dandy_u201D_u3002_u800C_u5728_u8FD9_u91CC_u6700_u540Eperson-name_u7684_u503C_u4E3Arose_uFF0C_u8BF4_u660E_u662F_u628Aperson_u8FD9_u4E2A_u5BF9_u8C61copy_u7ED9_u4E86_u51FD_u6570_u7684_u5C40_u90E8_u53D8_u91CFobj_u3002_u5728_u5C06name_u5C5E_u6027_u8D4B_u503C_u4E3Arose_u4E4B_u540E_uFF0Cperson-name_u4E5F_u5C31_u662Frose_u3002_u800C_u540E_u9762_u4E24_u6761_u8BED_u53E5_u53EA_u4E0D_u8FC7_u662F_u5728_u51FD_u6570_u5185_u90E8_u65B0_u5EFA_u4E00_u4E2A_u5C40_u90E8_u5BF9_u8C61_uFF0C_u5728_u51FD_u6570_u6267_u884C_u5B8C_u6BD5_u4E4B_u540E_u5C31_u7ACB_u5373_u88AB_u9500_u6BC1"><a href="#u4ECE_u4E0A_u9762_u7684_u8FD9_u4E2A_u4F8B_u5B50_u4E2D_u53EF_u4EE5_u770B_u5F97_u51FA_u6765_uFF0C_u5982_u679C_u662F_u6309_u5F15_u7528_u4F20_u9012_uFF0C_u90A3_u4E48_u6700_u540E_u80AF_u5B9A_u4F1A_u6307_u5411_u201Dandy_u201D_u3002_u800C_u5728_u8FD9_u91CC_u6700_u540Eperson-name_u7684_u503C_u4E3Arose_uFF0C_u8BF4_u660E_u662F_u628Aperson_u8FD9_u4E2A_u5BF9_u8C61copy_u7ED9_u4E86_u51FD_u6570_u7684_u5C40_u90E8_u53D8_u91CFobj_u3002_u5728_u5C06name_u5C5E_u6027_u8D4B_u503C_u4E3Arose_u4E4B_u540E_uFF0Cperson-name_u4E5F_u5C31_u662Frose_u3002_u800C_u540E_u9762_u4E24_u6761_u8BED_u53E5_u53EA_u4E0D_u8FC7_u662F_u5728_u51FD_u6570_u5185_u90E8_u65B0_u5EFA_u4E00_u4E2A_u5C40_u90E8_u5BF9_u8C61_uFF0C_u5728_u51FD_u6570_u6267_u884C_u5B8C_u6BD5_u4E4B_u540E_u5C31_u7ACB_u5373_u88AB_u9500_u6BC1" class="headerlink" title="从上面的这个例子中可以看得出来，如果是按引用传递，那么最后肯定会指向”andy”。而在这里最后person.name的值为rose，说明是把person这个对象copy给了函数的局部变量obj。在将name属性赋值为rose之后，person.name也就是rose。而后面两条语句只不过是在函数内部新建一个局部对象，在函数执行完毕之后就立即被销毁"></a>从上面的这个例子中可以看得出来，如果是按引用传递，那么最后肯定会指向”andy”。而在这里最后person.name的值为rose，说明是把person这个对象copy给了函数的局部变量obj。在将name属性赋值为rose之后，person.name也就是rose。而后面两条语句只不过是在函数内部新建一个局部对象，在函数执行完毕之后就立即被销毁</h6>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/13/JavaScript作用域学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript作用域学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Andy
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

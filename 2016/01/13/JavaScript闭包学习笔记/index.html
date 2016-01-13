@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JavaScript闭包学习笔记 | Andy的github博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是闭包？看了一堆的专业文献的解释，越看越糊涂，然后看几个栗子，返过头来看，闭包就是定义在一个函数内部，需要访问外层函数的变量的函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript闭包学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/01/13/JavaScript闭包学习笔记/index.html">
+<meta property="og:site_name" content="Andy的github博客">
+<meta property="og:description" content="什么是闭包？看了一堆的专业文献的解释，越看越糊涂，然后看几个栗子，返过头来看，闭包就是定义在一个函数内部，需要访问外层函数的变量的函数。">
+<meta property="og:updated_time" content="2016-01-13T13:03:13.939Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript闭包学习笔记">
+<meta name="twitter:description" content="什么是闭包？看了一堆的专业文献的解释，越看越糊涂，然后看几个栗子，返过头来看，闭包就是定义在一个函数内部，需要访问外层函数的变量的函数。">
+  
+    <link rel="alternative" href="/atom.xml" title="Andy的github博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+#你的百度统计代码
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Andy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/noticeZhou" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/3917192604/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">哈尔滨工业大学,计算机科学与技术学院2013级,前端爱好者，正在为成为一名合格的前端攻城狮奋斗着</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Andy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Andy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/noticeZhou" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/3917192604/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JavaScript闭包学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/JavaScript闭包学习笔记/" class="article-date">
+  	<time datetime="2016-01-13T12:45:36.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript闭包学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u4EC0_u4E48_u662F_u95ED_u5305_uFF1F"><a href="#u4EC0_u4E48_u662F_u95ED_u5305_uFF1F" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><h6 id="u770B_u4E86_u4E00_u5806_u7684_u4E13_u4E1A_u6587_u732E_u7684_u89E3_u91CA_uFF0C_u8D8A_u770B_u8D8A_u7CCA_u6D82_uFF0C_u7136_u540E_u770B_u51E0_u4E2A_u6817_u5B50_uFF0C_u8FD4_u8FC7_u5934_u6765_u770B_uFF0C_u95ED_u5305_u5C31_u662F_u5B9A_u4E49_u5728_u4E00_u4E2A_u51FD_u6570_u5185_u90E8_uFF0C_u9700_u8981_u8BBF_u95EE_u5916_u5C42_u51FD_u6570_u7684_u53D8_u91CF_u7684_u51FD_u6570_u3002"><a href="#u770B_u4E86_u4E00_u5806_u7684_u4E13_u4E1A_u6587_u732E_u7684_u89E3_u91CA_uFF0C_u8D8A_u770B_u8D8A_u7CCA_u6D82_uFF0C_u7136_u540E_u770B_u51E0_u4E2A_u6817_u5B50_uFF0C_u8FD4_u8FC7_u5934_u6765_u770B_uFF0C_u95ED_u5305_u5C31_u662F_u5B9A_u4E49_u5728_u4E00_u4E2A_u51FD_u6570_u5185_u90E8_uFF0C_u9700_u8981_u8BBF_u95EE_u5916_u5C42_u51FD_u6570_u7684_u53D8_u91CF_u7684_u51FD_u6570_u3002" class="headerlink" title="看了一堆的专业文献的解释，越看越糊涂，然后看几个栗子，返过头来看，闭包就是定义在一个函数内部，需要访问外层函数的变量的函数。"></a>看了一堆的专业文献的解释，越看越糊涂，然后看几个栗子，返过头来看，闭包就是定义在一个函数内部，需要访问外层函数的变量的函数。</h6><a id="more"></a>
+<h3 id="u600E_u4E48_u5B9A_u4E49_uFF1F"><a href="#u600E_u4E48_u5B9A_u4E49_uFF1F" class="headerlink" title="怎么定义？"></a>怎么定义？</h3><h6 id="u5728_u4E00_u4E2A_u51FD_u6570_u5185_u90E8_u5728_u5B9A_u4E49_u4E00_u4E2A_u51FD_u6570_uFF0C_u5E76_u5728_u5185_u90E8_u51FD_u6570_u4E2D_u8BBF_u95EE_u5916_u90E8_u51FD_u6570_u7684_u53D8_u91CF"><a href="#u5728_u4E00_u4E2A_u51FD_u6570_u5185_u90E8_u5728_u5B9A_u4E49_u4E00_u4E2A_u51FD_u6570_uFF0C_u5E76_u5728_u5185_u90E8_u51FD_u6570_u4E2D_u8BBF_u95EE_u5916_u90E8_u51FD_u6570_u7684_u53D8_u91CF" class="headerlink" title="在一个函数内部在定义一个函数，并在内部函数中访问外部函数的变量"></a>在一个函数内部在定义一个函数，并在内部函数中访问外部函数的变量</h6><pre><code>function outSide() {
+    var name = &quot;andy&quot;;
+    function inSide() {
+        console.log(name)
+    }
+}
+</code></pre><h6 id="u8FD9_u5C31_u662F_u4E00_u4E2A_u7B80_u5355_u7684_u95ED_u5305_uFF0CinSide_u51FD_u6570_u8BBF_u95EEoutSide_u51FD_u6570_u7684name_u53D8_u91CF"><a href="#u8FD9_u5C31_u662F_u4E00_u4E2A_u7B80_u5355_u7684_u95ED_u5305_uFF0CinSide_u51FD_u6570_u8BBF_u95EEoutSide_u51FD_u6570_u7684name_u53D8_u91CF" class="headerlink" title="这就是一个简单的闭包，inSide函数访问outSide函数的name变量"></a>这就是一个简单的闭包，inSide函数访问outSide函数的name变量</h6><h3 id="u8981_u5B83_u5E72_u5417_uFF1F"><a href="#u8981_u5B83_u5E72_u5417_uFF1F" class="headerlink" title="要它干吗？"></a>要它干吗？</h3><h6 id="u5176_u5B9E_u4E0A_u9762_u5B9A_u4E49_u7684_u90A3_u4E2A_u95ED_u5305_u6839_u672C_u4E0D_u4F1A_u88AB_u6267_u884C_uFF0C_u6240_u4EE5_u9700_u8981_u628A_u5B83_u4F5C_u4E3A_u8FD4_u56DE_u503C_uFF0C_u7136_u540E_u6267_u884C_u5B83_u3002_u4F46_u662F_u8FD9_u53C8_u6709_u4EC0_u4E48_u7528_u5462_uFF1F_u8FD9_u91CC_u6709_u4E00_u70B9_uFF0C_u6211_u89C9_u5F97_u5E94_u8BE5_u662F_u95ED_u5305_u91CC_u9762_u6700_u91CD_u8981_u7684_uFF0C_u5C31_u662F_uFF0C_uFF0C_uFF0C_uFF0C_u6211_u4EEC_u5148_u628A_u4EE3_u7801_u6539_u8FC7_u6765"><a href="#u5176_u5B9E_u4E0A_u9762_u5B9A_u4E49_u7684_u90A3_u4E2A_u95ED_u5305_u6839_u672C_u4E0D_u4F1A_u88AB_u6267_u884C_uFF0C_u6240_u4EE5_u9700_u8981_u628A_u5B83_u4F5C_u4E3A_u8FD4_u56DE_u503C_uFF0C_u7136_u540E_u6267_u884C_u5B83_u3002_u4F46_u662F_u8FD9_u53C8_u6709_u4EC0_u4E48_u7528_u5462_uFF1F_u8FD9_u91CC_u6709_u4E00_u70B9_uFF0C_u6211_u89C9_u5F97_u5E94_u8BE5_u662F_u95ED_u5305_u91CC_u9762_u6700_u91CD_u8981_u7684_uFF0C_u5C31_u662F_uFF0C_uFF0C_uFF0C_uFF0C_u6211_u4EEC_u5148_u628A_u4EE3_u7801_u6539_u8FC7_u6765" class="headerlink" title="其实上面定义的那个闭包根本不会被执行，所以需要把它作为返回值，然后执行它。但是这又有什么用呢？这里有一点，我觉得应该是闭包里面最重要的，就是，，，，我们先把代码改过来"></a>其实上面定义的那个闭包根本不会被执行，所以需要把它作为返回值，然后执行它。但是这又有什么用呢？这里有一点，我觉得应该是闭包里面最重要的，就是，，，，我们先把代码改过来</h6><pre><code>function outSide() {
+    var name = &quot;andy&quot;;
+    function inSide() {
+        console.log(name)
+    }
+    return inSide();
+}
+
+var fn = outSide();
+</code></pre><h6 id="u6211_u4EEC_u5728_u4EE3_u7801_u6700_u540E_u6267_u884C_u4E86outSide_u51FD_u6570_uFF0C_u5E76_u628A_u8FD4_u56DE_u503CinSide_u51FD_u6570_u8D4B_u7ED9_u4E86_u5168_u5C40_u53D8_u91CFfn_u3002_u6309_u9053_u7406_u8BF4_uFF0C_u51FD_u6570_u5728_u6267_u884C_u4E4B_u540E_u5C31_u5E94_u8BE5_u6D88_u9664_u6267_u884C_u73AF_u5883_u3002_u4F46_u662F_u5728_u8FD9_u91CC_u56E0_u4E3A_u51FD_u6570inSide_u4E2D_u5F15_u7528_u8FD9_u5916_u90E8_u51FD_u6570_u7684_u53D8_u91CFname_uFF0C_u56E0_u6B64_u5728_u5168_u5C40_u53D8_u91CFfn_u88AB_u6D88_u9664_u4E4B_u524D_uFF0C_u51FD_u6570outSide_u7684_u6267_u884C_u73AF_u5883_u4E0D_u4F1A_u88AB_u6D88_u9664_u3002so_2C_u5B83_u5230_u5E95_u6709_u4EC0_u4E48_u7528_uFF1F"><a href="#u6211_u4EEC_u5728_u4EE3_u7801_u6700_u540E_u6267_u884C_u4E86outSide_u51FD_u6570_uFF0C_u5E76_u628A_u8FD4_u56DE_u503CinSide_u51FD_u6570_u8D4B_u7ED9_u4E86_u5168_u5C40_u53D8_u91CFfn_u3002_u6309_u9053_u7406_u8BF4_uFF0C_u51FD_u6570_u5728_u6267_u884C_u4E4B_u540E_u5C31_u5E94_u8BE5_u6D88_u9664_u6267_u884C_u73AF_u5883_u3002_u4F46_u662F_u5728_u8FD9_u91CC_u56E0_u4E3A_u51FD_u6570inSide_u4E2D_u5F15_u7528_u8FD9_u5916_u90E8_u51FD_u6570_u7684_u53D8_u91CFname_uFF0C_u56E0_u6B64_u5728_u5168_u5C40_u53D8_u91CFfn_u88AB_u6D88_u9664_u4E4B_u524D_uFF0C_u51FD_u6570outSide_u7684_u6267_u884C_u73AF_u5883_u4E0D_u4F1A_u88AB_u6D88_u9664_u3002so_2C_u5B83_u5230_u5E95_u6709_u4EC0_u4E48_u7528_uFF1F" class="headerlink" title="我们在代码最后执行了outSide函数，并把返回值inSide函数赋给了全局变量fn。按道理说，函数在执行之后就应该消除执行环境。但是在这里因为函数inSide中引用这外部函数的变量name，因此在全局变量fn被消除之前，函数outSide的执行环境不会被消除。so,它到底有什么用？"></a>我们在代码最后执行了outSide函数，并把返回值inSide函数赋给了全局变量fn。按道理说，函数在执行之后就应该消除执行环境。但是在这里因为函数inSide中引用这外部函数的变量name，因此在全局变量fn被消除之前，函数outSide的执行环境不会被消除。so,它到底有什么用？</h6><h6 id="u9996_u5148_uFF0C_u5B83_u7684_u7B2C_u4E00_u4E2A_u4F5C_u7528_u6211_u4EEC_u5DF2_u7ECF_u770B_u89C1_u4E86_uFF0C_u5C31_u662F_u53EF_u4EE5_u8BBF_u95EE_u51FD_u6570_u5185_u90E8_u7684_u53D8_u91CF_u3002_u7B2C_u4E8C_u4E2A_u5C31_u662F_u53EF_u4EE5_u4FDD_u6301_u53D8_u91CF_u4E00_u76F4_u5728_u5185_u5B58_u4E2D_uFF0C_u4E0D_u4F1A_u88AB_u6D88_u9664_uFF0C_u518D_u6765_u770B_u4E00_u4E2A_u6817_u5B50"><a href="#u9996_u5148_uFF0C_u5B83_u7684_u7B2C_u4E00_u4E2A_u4F5C_u7528_u6211_u4EEC_u5DF2_u7ECF_u770B_u89C1_u4E86_uFF0C_u5C31_u662F_u53EF_u4EE5_u8BBF_u95EE_u51FD_u6570_u5185_u90E8_u7684_u53D8_u91CF_u3002_u7B2C_u4E8C_u4E2A_u5C31_u662F_u53EF_u4EE5_u4FDD_u6301_u53D8_u91CF_u4E00_u76F4_u5728_u5185_u5B58_u4E2D_uFF0C_u4E0D_u4F1A_u88AB_u6D88_u9664_uFF0C_u518D_u6765_u770B_u4E00_u4E2A_u6817_u5B50" class="headerlink" title="首先，它的第一个作用我们已经看见了，就是可以访问函数内部的变量。第二个就是可以保持变量一直在内存中，不会被消除，再来看一个栗子"></a>首先，它的第一个作用我们已经看见了，就是可以访问函数内部的变量。第二个就是可以保持变量一直在内存中，不会被消除，再来看一个栗子</h6><pre><code>function f1(){ 　　
+　　var n=999;
+　　nAdd=function(){n+=1}
+　　function f2(){
+　　　　console.log(n);
+　　}
+　　return f2;
+}
+
+var result=f1();
+result(); // 999　　
+nAdd();　　 
+result(); // 1000　　
+</code></pre><h6 id="u501F_u7528_u962E_u54E5_u7684_u6817_u5B50_u3002_u5728_u6267_u884C_u8FC7_u51FD_u6570f1_u4E4B_u540E_uFF0Cf1_u5185_u90E8_u53D8_u91CFn_u5C31_u4E00_u76F4_u5728_u5185_u5B58_u4E2D_uFF0C_u6240_u4EE5_u5728_u6267_u884C_u51FD_u6570nAdd_u4E4B_u540E_uFF0C_u8BBF_u95EEn_u65F6_uFF0Cn_u4E3A1000"><a href="#u501F_u7528_u962E_u54E5_u7684_u6817_u5B50_u3002_u5728_u6267_u884C_u8FC7_u51FD_u6570f1_u4E4B_u540E_uFF0Cf1_u5185_u90E8_u53D8_u91CFn_u5C31_u4E00_u76F4_u5728_u5185_u5B58_u4E2D_uFF0C_u6240_u4EE5_u5728_u6267_u884C_u51FD_u6570nAdd_u4E4B_u540E_uFF0C_u8BBF_u95EEn_u65F6_uFF0Cn_u4E3A1000" class="headerlink" title="借用阮哥的栗子。在执行过函数f1之后，f1内部变量n就一直在内存中，所以在执行函数nAdd之后，访问n时，n为1000."></a>借用阮哥的栗子。在执行过函数f1之后，f1内部变量n就一直在内存中，所以在执行函数nAdd之后，访问n时，n为1000.</h6><pre><code>function f1() {
+    var m = 10;
+    return function f2() [
+        console.log(m)
+    }
+}
+
+var fn = f1();
+m = 100;
+
+fn();   //10
+</code></pre><h6 id="u5728_u8FD9_u4E2A_u4F8B_u5B50_u4E2D_uFF0C_u5C06_u51FD_u6570f2_u8FD4_u56DE_u8D4B_u503C_u7ED9fn_u540E_uFF0C_u5B9A_u4E49_u5168_u5C40_u53D8_u91CF100_2C_u3002_u4F46_u662F_u6B64_u65F6_u51FD_u6570f1_u7684_u6267_u884C_u73AF_u5883_u4E2D_uFF0Cn_u7684_u503C_u8FD8_u662F10-_u800C_u5728_u6267_u884C_u95ED_u5305_u51FD_u6570_u65F6_uFF0C_u4ECE_u5185_u90E8_u51FD_u6570_u4F5C_u7528_u57DF_u6CBF_u7740_u4F5C_u7528_u57DF_u94FE_u4E00_u6B21_u5411_u540E_u627E_uFF0C_u5728f1_u7684_u4F5C_u7528_u57DF_u4E2D_u627E_u5230_u53D8_u91CFn_uFF0C_u6240_u4EE5_u6267_u884C_u7ED3_u679C_u4E3A10"><a href="#u5728_u8FD9_u4E2A_u4F8B_u5B50_u4E2D_uFF0C_u5C06_u51FD_u6570f2_u8FD4_u56DE_u8D4B_u503C_u7ED9fn_u540E_uFF0C_u5B9A_u4E49_u5168_u5C40_u53D8_u91CF100_2C_u3002_u4F46_u662F_u6B64_u65F6_u51FD_u6570f1_u7684_u6267_u884C_u73AF_u5883_u4E2D_uFF0Cn_u7684_u503C_u8FD8_u662F10-_u800C_u5728_u6267_u884C_u95ED_u5305_u51FD_u6570_u65F6_uFF0C_u4ECE_u5185_u90E8_u51FD_u6570_u4F5C_u7528_u57DF_u6CBF_u7740_u4F5C_u7528_u57DF_u94FE_u4E00_u6B21_u5411_u540E_u627E_uFF0C_u5728f1_u7684_u4F5C_u7528_u57DF_u4E2D_u627E_u5230_u53D8_u91CFn_uFF0C_u6240_u4EE5_u6267_u884C_u7ED3_u679C_u4E3A10" class="headerlink" title="在这个例子中，将函数f2返回赋值给fn后，定义全局变量100,。但是此时函数f1的执行环境中，n的值还是10.而在执行闭包函数时，从内部函数作用域沿着作用域链一次向后找，在f1的作用域中找到变量n，所以执行结果为10."></a>在这个例子中，将函数f2返回赋值给fn后，定义全局变量100,。但是此时函数f1的执行环境中，n的值还是10.而在执行闭包函数时，从内部函数作用域沿着作用域链一次向后找，在f1的作用域中找到变量n，所以执行结果为10.</h6><h4 id="u9700_u8981_u6CE8_u610F_u7684_u662F_uFF0C_u4F7F_u7528_u95ED_u5305_u4F1A_u5F88_u5360_u5185_u5B58_uFF0C_u6240_u4EE5_u6267_u884C_u4E4B_u540E_u4E00_u5B9A_u8BB0_u5F97_u6D88_u9664_u5F15_u7528_u3002_u8FD8_u6709_u5C31_u662F_u5F53_u5728_u4E00_u4E2A_u5FAA_u73AF_u4E2D_u8D4B_u503C_u51FD_u6570_u65F6_uFF0C_u8FD9_u4E9B_u51FD_u6570_u5C06_u7ED1_u5B9A_u540C_u6837_u7684_u95ED_u5305_u3002"><a href="#u9700_u8981_u6CE8_u610F_u7684_u662F_uFF0C_u4F7F_u7528_u95ED_u5305_u4F1A_u5F88_u5360_u5185_u5B58_uFF0C_u6240_u4EE5_u6267_u884C_u4E4B_u540E_u4E00_u5B9A_u8BB0_u5F97_u6D88_u9664_u5F15_u7528_u3002_u8FD8_u6709_u5C31_u662F_u5F53_u5728_u4E00_u4E2A_u5FAA_u73AF_u4E2D_u8D4B_u503C_u51FD_u6570_u65F6_uFF0C_u8FD9_u4E9B_u51FD_u6570_u5C06_u7ED1_u5B9A_u540C_u6837_u7684_u95ED_u5305_u3002" class="headerlink" title="需要注意的是，使用闭包会很占内存，所以执行之后一定记得消除引用。还有就是当在一个循环中赋值函数时，这些函数将绑定同样的闭包。"></a>需要注意的是，使用闭包会很占内存，所以执行之后一定记得消除引用。还有就是当在一个循环中赋值函数时，这些函数将绑定同样的闭包。</h4><h5 id="u6DFB_u52A0_u4E00_u4E2A_u6743_u5A01_u6307_u5357_u4E2D_u7684_u6817_u5B50"><a href="#u6DFB_u52A0_u4E00_u4E2A_u6743_u5A01_u6307_u5357_u4E2D_u7684_u6817_u5B50" class="headerlink" title="添加一个权威指南中的栗子"></a>添加一个权威指南中的栗子</h5><pre><code>function counter() {
+    var n = 0;
+    return {
+        count: function { return n++; },
+        reset: function { n=0; }
+    };
+}
+
+var c = counter90,d = counter(); //创建两个计数器
+c.count();            //0
+d.count();            //0 他们互不干扰
+c.reset();
+c.count();
+d.count()
+</code></pre><h6 id="u6BCF_u6B21_u8C03_u7528counter_28_29_u90FD_u4F1A_u521B_u5EFA_u4E00_u4E2A_u65B0_u7684_u4F5C_u7528_u57DF_u94FE_u548C_u4E00_u4E2A_u65B0_u7684_u79C1_u6709_u53D8_u91CF_u3002_u56E0_u6B64_u521B_u5EFA_u7684_u4E24_u4E2A_u5BF9_u8C61_u4E4B_u95F4_u4E92_u4E0D_u5E72_u6270_u3002"><a href="#u6BCF_u6B21_u8C03_u7528counter_28_29_u90FD_u4F1A_u521B_u5EFA_u4E00_u4E2A_u65B0_u7684_u4F5C_u7528_u57DF_u94FE_u548C_u4E00_u4E2A_u65B0_u7684_u79C1_u6709_u53D8_u91CF_u3002_u56E0_u6B64_u521B_u5EFA_u7684_u4E24_u4E2A_u5BF9_u8C61_u4E4B_u95F4_u4E92_u4E0D_u5E72_u6270_u3002" class="headerlink" title="每次调用counter()都会创建一个新的作用域链和一个新的私有变量。因此创建的两个对象之间互不干扰。"></a>每次调用counter()都会创建一个新的作用域链和一个新的私有变量。因此创建的两个对象之间互不干扰。</h6><h6 id="u4F46_u662F_u4E0B_u9762_u8FD9_u4E2A_u4F8B_u5B50_u7684_u7ED3_u679C_u5C31_u4E0D_u662F_u8FD9_u6837_u5566"><a href="#u4F46_u662F_u4E0B_u9762_u8FD9_u4E2A_u4F8B_u5B50_u7684_u7ED3_u679C_u5C31_u4E0D_u662F_u8FD9_u6837_u5566" class="headerlink" title="但是下面这个例子的结果就不是这样啦"></a>但是下面这个例子的结果就不是这样啦</h6><pre><code>function constfuncs(){
+    var funcs = [];
+    for(var i=0;i&lt;10;i++)
+        funcs[i] = function(){ return i;};
+    return funcs;
+}
+
+var funcs = constfuncs();
+funcs[5]();       //10
+</code></pre><h6 id="u7ED3_u679C_u4E0D_u662F_u60F3_u8C61_u4E2D_u76845-_u56E0_u4E3A_u5FAA_u73AF_u7ED3_u675F_uFF0Ci_u7684_u503C_u4E3A10-_u51FD_u6570_u8FD4_u56DE_u7684_u95ED_u5305_u53EA_u4E0D_u8FC7_u662F_u6307_u5411_u4E86_u8BE5_u51FD_u6570_u7684_u4F5C_u7528_u57DF_u94FE_uFF0C_u800C_u4E0D_u662F_u50CF_u4E0A_u4E00_u4E2A_u4F8B_u5B50_u90A3_u6837_u5C06_u6BCF_u4E00_u4E2A_u6210_u5458_u53D8_u91CF_u590D_u5236_u4E00_u904D"><a href="#u7ED3_u679C_u4E0D_u662F_u60F3_u8C61_u4E2D_u76845-_u56E0_u4E3A_u5FAA_u73AF_u7ED3_u675F_uFF0Ci_u7684_u503C_u4E3A10-_u51FD_u6570_u8FD4_u56DE_u7684_u95ED_u5305_u53EA_u4E0D_u8FC7_u662F_u6307_u5411_u4E86_u8BE5_u51FD_u6570_u7684_u4F5C_u7528_u57DF_u94FE_uFF0C_u800C_u4E0D_u662F_u50CF_u4E0A_u4E00_u4E2A_u4F8B_u5B50_u90A3_u6837_u5C06_u6BCF_u4E00_u4E2A_u6210_u5458_u53D8_u91CF_u590D_u5236_u4E00_u904D" class="headerlink" title="结果不是想象中的5.因为循环结束，i的值为10.函数返回的闭包只不过是指向了该函数的作用域链，而不是像上一个例子那样将每一个成员变量复制一遍"></a>结果不是想象中的5.因为循环结束，i的值为10.函数返回的闭包只不过是指向了该函数的作用域链，而不是像上一个例子那样将每一个成员变量复制一遍</h6><h4 id="u5173_u4E8Ethis_u5BF9_u8C61"><a href="#u5173_u4E8Ethis_u5BF9_u8C61" class="headerlink" title="关于this对象"></a>关于this对象</h4><h5 id="u4E00_u3001_u5355_u7EAF_u51FD_u6570_u8C03_u7528_u7684_u60C5_u51B5"><a href="#u4E00_u3001_u5355_u7EAF_u51FD_u6570_u8C03_u7528_u7684_u60C5_u51B5" class="headerlink" title="一、单纯函数调用的情况"></a>一、单纯函数调用的情况</h5><pre><code>var name = &quot;this window&quot;;
+
+var object = {
+    name: &quot;my object&quot;,
+    getName: function() {
+        return function() {
+            return this.name;
+        };
+    }
+}
+
+console.log(object.getName()());  //this window
+</code></pre><h6 id="u4E0A_u9762_u8FD9_u4E2A_u4F8B_u5B50_u7684_u7ED3_u679C_u4E4B_u6240_u4EE5_u662F_u5168_u5C40_u5BF9_u8C61_u4E2D_u7684name_u662F_u56E0_u4E3A_u662F_u5728_u5168_u5C40_u73AF_u5883_u4E2D_u8C03_u7528_u7684_u5185_u90E8_u51FD_u6570_u3002_u6BCF_u4E2A_u51FD_u6570_u5728_u88AB_u8C03_u7528_u65F6_uFF0C_u5176_u6D3B_u52A8_u5BF9_u8C61_u4F1A_u81EA_u52A8_u53D6_u5F97this_2Carguments_u7684_u503C_u3002_u5462_u4F60_u4E0D_u51FD_u6570_u5728_u641C_u7D22_u8FD9_u4E24_u4E2A_u53D8_u91CF_u65F6_uFF0C_u53EA_u4F1A_u641C_u7D22_u5230_u5176_u6D3B_u52A8_u5BF9_u8C61_u4E3A_u6B62_uFF0C_u6C38_u8FDC_u4E0D_u53EF_u80FD_u8BBF_u95EE_u5230_u5916_u90E8_u51FD_u6570_u7684_u8FD9_u4E24_u4E2A_u53D8_u91CF_u3002"><a href="#u4E0A_u9762_u8FD9_u4E2A_u4F8B_u5B50_u7684_u7ED3_u679C_u4E4B_u6240_u4EE5_u662F_u5168_u5C40_u5BF9_u8C61_u4E2D_u7684name_u662F_u56E0_u4E3A_u662F_u5728_u5168_u5C40_u73AF_u5883_u4E2D_u8C03_u7528_u7684_u5185_u90E8_u51FD_u6570_u3002_u6BCF_u4E2A_u51FD_u6570_u5728_u88AB_u8C03_u7528_u65F6_uFF0C_u5176_u6D3B_u52A8_u5BF9_u8C61_u4F1A_u81EA_u52A8_u53D6_u5F97this_2Carguments_u7684_u503C_u3002_u5462_u4F60_u4E0D_u51FD_u6570_u5728_u641C_u7D22_u8FD9_u4E24_u4E2A_u53D8_u91CF_u65F6_uFF0C_u53EA_u4F1A_u641C_u7D22_u5230_u5176_u6D3B_u52A8_u5BF9_u8C61_u4E3A_u6B62_uFF0C_u6C38_u8FDC_u4E0D_u53EF_u80FD_u8BBF_u95EE_u5230_u5916_u90E8_u51FD_u6570_u7684_u8FD9_u4E24_u4E2A_u53D8_u91CF_u3002" class="headerlink" title="上面这个例子的结果之所以是全局对象中的name是因为是在全局环境中调用的内部函数。每个函数在被调用时，其活动对象会自动取得this,arguments的值。呢你不函数在搜索这两个变量时，只会搜索到其活动对象为止，永远不可能访问到外部函数的这两个变量。"></a>上面这个例子的结果之所以是全局对象中的name是因为是在全局环境中调用的内部函数。每个函数在被调用时，其活动对象会自动取得this,arguments的值。呢你不函数在搜索这两个变量时，只会搜索到其活动对象为止，永远不可能访问到外部函数的这两个变量。</h6><h6 id="u4E0A_u9762_u8FD9_u4E2A_u4F8B_u5B50_u5982_u679C_u60F3_u8981_u5F15_u7528_u5916_u90E8_u51FD_u6570_u7684name_u53D8_u91CF_u7684_u503C_uFF0C_u53EF_u4EE5_u8FD9_u6837_u7A0D_u7A0D_u6539_u4E00_u4E0B"><a href="#u4E0A_u9762_u8FD9_u4E2A_u4F8B_u5B50_u5982_u679C_u60F3_u8981_u5F15_u7528_u5916_u90E8_u51FD_u6570_u7684name_u53D8_u91CF_u7684_u503C_uFF0C_u53EF_u4EE5_u8FD9_u6837_u7A0D_u7A0D_u6539_u4E00_u4E0B" class="headerlink" title="上面这个例子如果想要引用外部函数的name变量的值，可以这样稍稍改一下"></a>上面这个例子如果想要引用外部函数的name变量的值，可以这样稍稍改一下</h6><pre><code>var name = &quot;this window&quot;;
+
+var object = {
+    name: &quot;my object&quot;,
+    getName: function() {
+        var that = this;
+        return function() {
+            return that.name;
+        };
+    }
+}
+
+console.log(object.getName()());  //my object
+</code></pre><h6 id="u5BF9_u7A0B_u5E8F_u8FDB_u884C_u4E86_u4E00_u70B9_u5C0F_u4FEE_u6539_uFF0C_u6DFB_u52A0_u4E86_u4E00_u4E2Athat_u53D8_u91CF_uFF0C_u6307_u5411this_uFF0C_u7136_u540E_u5728_u5185_u90E8_u51FD_u6570_u4E2D_u4F7F_u7528that_u53D8_u91CF_u3002_u8FD9_u6837_uFF0C_u5728_u5916_u9762_u8C03_u7528_u5185_u90E8_u51FD_u6570_u65F6_uFF0C_u5C31_u4F1A_u5728_u5916_u90E8_u51FD_u6570_u7684_u6267_u884C_u73AF_u5883_u4E2D_u641C_u7D22that_u53D8_u91CF_u7684_u503C_uFF0C_u800C_u8FD9_u91CC_u7684this_u5F15_u7528_u7684_u5F53_u524D_u7684object_u3002_u6240_u4EE5_u7ED3_u679C_u662F_u6211_u4EEC_u60F3_u8981_u7684_my_object"><a href="#u5BF9_u7A0B_u5E8F_u8FDB_u884C_u4E86_u4E00_u70B9_u5C0F_u4FEE_u6539_uFF0C_u6DFB_u52A0_u4E86_u4E00_u4E2Athat_u53D8_u91CF_uFF0C_u6307_u5411this_uFF0C_u7136_u540E_u5728_u5185_u90E8_u51FD_u6570_u4E2D_u4F7F_u7528that_u53D8_u91CF_u3002_u8FD9_u6837_uFF0C_u5728_u5916_u9762_u8C03_u7528_u5185_u90E8_u51FD_u6570_u65F6_uFF0C_u5C31_u4F1A_u5728_u5916_u90E8_u51FD_u6570_u7684_u6267_u884C_u73AF_u5883_u4E2D_u641C_u7D22that_u53D8_u91CF_u7684_u503C_uFF0C_u800C_u8FD9_u91CC_u7684this_u5F15_u7528_u7684_u5F53_u524D_u7684object_u3002_u6240_u4EE5_u7ED3_u679C_u662F_u6211_u4EEC_u60F3_u8981_u7684_my_object" class="headerlink" title="对程序进行了一点小修改，添加了一个that变量，指向this，然后在内部函数中使用that变量。这样，在外面调用内部函数时，就会在外部函数的执行环境中搜索that变量的值，而这里的this引用的当前的object。所以结果是我们想要的 my object"></a>对程序进行了一点小修改，添加了一个that变量，指向this，然后在内部函数中使用that变量。这样，在外面调用内部函数时，就会在外部函数的执行环境中搜索that变量的值，而这里的this引用的当前的object。所以结果是我们想要的 my object</h6><h5 id="u4E8C_u3001this_u8FD8_u53EF_u4EE5_u4F5C_u4E3A_u5BF9_u8C61_u65B9_u6CD5_u88AB_u8C03_u7528"><a href="#u4E8C_u3001this_u8FD8_u53EF_u4EE5_u4F5C_u4E3A_u5BF9_u8C61_u65B9_u6CD5_u88AB_u8C03_u7528" class="headerlink" title="二、this还可以作为对象方法被调用"></a>二、this还可以作为对象方法被调用</h5><pre><code>var x = 0;
+
+function test() {
+    console.log(this.x);
+}
+
+var obj = new Object();
+obj.test = test;
+obj.x = 1;
+
+obj.test();  //1
+</code></pre><h6 id="u8FD9_u91CCthis_u52A8_u6001_u7ED1_u5B9A_u4E86_u5F53_u524D_u7684_u5BF9_u8C61obj_uFF0C_u56E0_u6B64_u5F15_u7528_u7684_u662F_u5F53_u524D_u5BF9_u8C61_u7684_u53D8_u91CF_u503C"><a href="#u8FD9_u91CCthis_u52A8_u6001_u7ED1_u5B9A_u4E86_u5F53_u524D_u7684_u5BF9_u8C61obj_uFF0C_u56E0_u6B64_u5F15_u7528_u7684_u662F_u5F53_u524D_u5BF9_u8C61_u7684_u53D8_u91CF_u503C" class="headerlink" title="这里this动态绑定了当前的对象obj，因此引用的是当前对象的变量值"></a>这里this动态绑定了当前的对象obj，因此引用的是当前对象的变量值</h6><h5 id="u4E09_u3001_u4F5C_u4E3A_u6784_u9020_u51FD_u6570_u88AB_u8C03_u7528_uFF0C_u6B64_u65F6this_u6307_u5411_u7684_u5C31_u662F_u65B0_u5EFA_u7684_u5BF9_u8C61"><a href="#u4E09_u3001_u4F5C_u4E3A_u6784_u9020_u51FD_u6570_u88AB_u8C03_u7528_uFF0C_u6B64_u65F6this_u6307_u5411_u7684_u5C31_u662F_u65B0_u5EFA_u7684_u5BF9_u8C61" class="headerlink" title="三、作为构造函数被调用，此时this指向的就是新建的对象"></a>三、作为构造函数被调用，此时this指向的就是新建的对象</h5><pre><code>var x = 2;
+
+function test(){
+　　this.x = 1;
+}
+
+var o = new test();
+console.log(o.x); // 1
+</code></pre><h5 id="u56DB_uFF0C_u4F7F_u7528apply_28_29_2Ccall_28_29_u3002this_u6307_u5411_u7684_u5C31_u662F_u62EC_u53F7_u91CC_u7684_u7B2C_u4E00_u4E2A_u53C2_u6570_uFF0C_u8868_u793A_u51FD_u6570_u5F53_u524D_u4F5C_u7528_u7684_u5BF9_u8C61_uFF0C_u82E5_u4E3A_u7A7A_u5219_u8868_u793A_u4E3A_u5168_u5C40_u5BF9_u8C61"><a href="#u56DB_uFF0C_u4F7F_u7528apply_28_29_2Ccall_28_29_u3002this_u6307_u5411_u7684_u5C31_u662F_u62EC_u53F7_u91CC_u7684_u7B2C_u4E00_u4E2A_u53C2_u6570_uFF0C_u8868_u793A_u51FD_u6570_u5F53_u524D_u4F5C_u7528_u7684_u5BF9_u8C61_uFF0C_u82E5_u4E3A_u7A7A_u5219_u8868_u793A_u4E3A_u5168_u5C40_u5BF9_u8C61" class="headerlink" title="四，使用apply(),call()。this指向的就是括号里的第一个参数，表示函数当前作用的对象，若为空则表示为全局对象"></a>四，使用apply(),call()。this指向的就是括号里的第一个参数，表示函数当前作用的对象，若为空则表示为全局对象</h5><pre><code>var x = 0;
+
+function test(){
+    console.log(this.x);    
+}
+
+var o={};
+o.x = 1;
+o.m = test;
+o.m.apply();     //0
+o.m.apply(0);   //1
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/13/JavaScript原型学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript原型学习笔记
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Andy
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
