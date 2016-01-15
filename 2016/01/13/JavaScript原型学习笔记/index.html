@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JavaScript原型学习笔记 | Andy的github博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们在Java中学过类，可是在JavaScript中没有类这个概念，更为灵活的原型替代了类JavaScript中没有类的概念，那怎样才能实现类的功能呢？起初有这么几个方法function createPerson(name,age,job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript原型学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/01/13/JavaScript原型学习笔记/index.html">
+<meta property="og:site_name" content="Andy的github博客">
+<meta property="og:description" content="我们在Java中学过类，可是在JavaScript中没有类这个概念，更为灵活的原型替代了类JavaScript中没有类的概念，那怎样才能实现类的功能呢？起初有这么几个方法function createPerson(name,age,job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;">
+<meta property="og:image" content="http://i.imgur.com/weuzO9a.png">
+<meta property="og:updated_time" content="2016-01-13T13:12:31.766Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript原型学习笔记">
+<meta name="twitter:description" content="我们在Java中学过类，可是在JavaScript中没有类这个概念，更为灵活的原型替代了类JavaScript中没有类的概念，那怎样才能实现类的功能呢？起初有这么几个方法function createPerson(name,age,job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;">
+  
+    <link rel="alternative" href="/atom.xml" title="Andy的github博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+#你的百度统计代码
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Andy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/noticeZhou" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/3917192604/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:notice_zhou@163.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ijack.pw/">Jack Alan</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.coypan.com">coypan</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">哈尔滨工业大学,计算机科学与技术学院2013级,前端爱好者，正在为成为一名合格的前端攻城狮奋斗着</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Andy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Andy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/noticeZhou" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/3917192604/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:notice_zhou@163.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JavaScript原型学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/JavaScript原型学习笔记/" class="article-date">
+  	<time datetime="2016-01-13T13:04:21.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript原型学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="u6211_u4EEC_u5728Java_u4E2D_u5B66_u8FC7_u7C7B_uFF0C_u53EF_u662F_u5728JavaScript_u4E2D_u6CA1_u6709_u7C7B_u8FD9_u4E2A_u6982_u5FF5_uFF0C_u66F4_u4E3A_u7075_u6D3B_u7684_u539F_u578B_u66FF_u4EE3_u4E86_u7C7B"><a href="#u6211_u4EEC_u5728Java_u4E2D_u5B66_u8FC7_u7C7B_uFF0C_u53EF_u662F_u5728JavaScript_u4E2D_u6CA1_u6709_u7C7B_u8FD9_u4E2A_u6982_u5FF5_uFF0C_u66F4_u4E3A_u7075_u6D3B_u7684_u539F_u578B_u66FF_u4EE3_u4E86_u7C7B" class="headerlink" title="我们在Java中学过类，可是在JavaScript中没有类这个概念，更为灵活的原型替代了类"></a>我们在Java中学过类，可是在JavaScript中没有类这个概念，更为灵活的原型替代了类</h5><h4 id="JavaScript_u4E2D_u6CA1_u6709_u7C7B_u7684_u6982_u5FF5_uFF0C_u90A3_u600E_u6837_u624D_u80FD_u5B9E_u73B0_u7C7B_u7684_u529F_u80FD_u5462_uFF1F_u8D77_u521D_u6709_u8FD9_u4E48_u51E0_u4E2A_u65B9_u6CD5"><a href="#JavaScript_u4E2D_u6CA1_u6709_u7C7B_u7684_u6982_u5FF5_uFF0C_u90A3_u600E_u6837_u624D_u80FD_u5B9E_u73B0_u7C7B_u7684_u529F_u80FD_u5462_uFF1F_u8D77_u521D_u6709_u8FD9_u4E48_u51E0_u4E2A_u65B9_u6CD5" class="headerlink" title="JavaScript中没有类的概念，那怎样才能实现类的功能呢？起初有这么几个方法"></a>JavaScript中没有类的概念，那怎样才能实现类的功能呢？起初有这么几个方法</h4><pre><code>function createPerson(name,age,job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+        console.log(this.name);
+    };
+    return o;
+}
+var person1 = createPerson(&quot;rose&quot;,20,&quot;student&quot;);
+</code></pre><a id="more"></a>
+<h6 id="u8FD9_u79CD_u65B9_u6CD5_u53EB_u505A_u5DE5_u5382_u6A21_u5F0F_uFF0C_u53EF_u4EE5_u5B9E_u4F8B_u5316_u4E00_u4E2A_u4E2A_u7684_u5BF9_u8C61_u3002_u4F46_u662F_u6CA1_u6709_u89E3_u51B3_u5BF9_u8C61_u8BC6_u522B_u7684_u95EE_u9898_28_u5373_u521B_u5EFA_u7684_u662F_u4EC0_u4E48_u7C7B_u578B_u7684_u5BF9_u8C61_29_u3002"><a href="#u8FD9_u79CD_u65B9_u6CD5_u53EB_u505A_u5DE5_u5382_u6A21_u5F0F_uFF0C_u53EF_u4EE5_u5B9E_u4F8B_u5316_u4E00_u4E2A_u4E2A_u7684_u5BF9_u8C61_u3002_u4F46_u662F_u6CA1_u6709_u89E3_u51B3_u5BF9_u8C61_u8BC6_u522B_u7684_u95EE_u9898_28_u5373_u521B_u5EFA_u7684_u662F_u4EC0_u4E48_u7C7B_u578B_u7684_u5BF9_u8C61_29_u3002" class="headerlink" title="这种方法叫做工厂模式，可以实例化一个个的对象。但是没有解决对象识别的问题(即创建的是什么类型的对象)。"></a>这种方法叫做工厂模式，可以实例化一个个的对象。但是没有解决对象识别的问题(即创建的是什么类型的对象)。</h6><pre><code>function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = function() {
+        console.log(this.name);
+    };
+}
+var person1 = new Person(&quot;rose&quot;,20,&quot;student&quot;); 
+</code></pre><h6 id="u8FD9_u79CD_u65B9_u6CD5_u53EB_u6784_u9020_u51FD_u6570_u6A21_u5F0F_u3002_u8FD9_u79CD_u6A21_u5F0F_u6CA1_u6709_u663E_u793A_u7684_u521B_u5EFA_u5BF9_u8C61_u4E5F_u6CA1_u6709return_u8BED_u53E5_uFF0C_u76F4_u63A5_u5C06_u5C5E_u6027_u548C_u65B9_u6CD5_u8D4B_u7ED9_u4E86this_u5BF9_u8C61_u3002_u6700_u540E_u4F7F_u7528new_u64CD_u4F5C_u7B26_u521B_u5EFA_u4E86_u4E00_u4E2APerson_u5B9E_u4F8B_u3002_u53EF_u4EE5_u7528instanceof_u68C0_u9A8C_uFF0C_u8FD9_u4E2A_u5B9E_u4F8B_u65E2_u662FPerson_u5B9E_u4F8B_uFF0C_u53C8_u662F_u4E00_u4E2A_u5BF9_u8C61_u3002_u56E0_u4E3A_u51FD_u6570_u672C_u8EAB_u5C31_u662F_u5BF9_u8C61_u3002"><a href="#u8FD9_u79CD_u65B9_u6CD5_u53EB_u6784_u9020_u51FD_u6570_u6A21_u5F0F_u3002_u8FD9_u79CD_u6A21_u5F0F_u6CA1_u6709_u663E_u793A_u7684_u521B_u5EFA_u5BF9_u8C61_u4E5F_u6CA1_u6709return_u8BED_u53E5_uFF0C_u76F4_u63A5_u5C06_u5C5E_u6027_u548C_u65B9_u6CD5_u8D4B_u7ED9_u4E86this_u5BF9_u8C61_u3002_u6700_u540E_u4F7F_u7528new_u64CD_u4F5C_u7B26_u521B_u5EFA_u4E86_u4E00_u4E2APerson_u5B9E_u4F8B_u3002_u53EF_u4EE5_u7528instanceof_u68C0_u9A8C_uFF0C_u8FD9_u4E2A_u5B9E_u4F8B_u65E2_u662FPerson_u5B9E_u4F8B_uFF0C_u53C8_u662F_u4E00_u4E2A_u5BF9_u8C61_u3002_u56E0_u4E3A_u51FD_u6570_u672C_u8EAB_u5C31_u662F_u5BF9_u8C61_u3002" class="headerlink" title="这种方法叫构造函数模式。这种模式没有显示的创建对象也没有return语句，直接将属性和方法赋给了this对象。最后使用new操作符创建了一个Person实例。可以用instanceof检验，这个实例既是Person实例，又是一个对象。因为函数本身就是对象。"></a>这种方法叫构造函数模式。这种模式没有显示的创建对象也没有return语句，直接将属性和方法赋给了this对象。最后使用new操作符创建了一个Person实例。可以用instanceof检验，这个实例既是Person实例，又是一个对象。因为函数本身就是对象。</h6><h6 id="JavaScript_u4E2D_uFF0C_u201C_u4E00_u5207_u90FD_u662F_u5BF9_u8C61_u201D_28_u503C_u7C7B_u578B_u4E0D_u662F_29_uFF0C_u5BF9_u8C61_u662F_u4E00_u4E2A_u5C5E_u6027_u7684_u96C6_u5408_u3002_u51FD_u6570_u4E5F_u662F_u4E00_u4E2A_u5BF9_u8C61_uFF0C_u4E5F_u6709_u7740length_u7B49_u7B49_u7684_u53D8_u91CF_u3002_u5BF9_u8C61_u662F_u901A_u8FC7_u51FD_u6570_u521B_u5EFA_u7684_u3002_u6BD4_u5982"><a href="#JavaScript_u4E2D_uFF0C_u201C_u4E00_u5207_u90FD_u662F_u5BF9_u8C61_u201D_28_u503C_u7C7B_u578B_u4E0D_u662F_29_uFF0C_u5BF9_u8C61_u662F_u4E00_u4E2A_u5C5E_u6027_u7684_u96C6_u5408_u3002_u51FD_u6570_u4E5F_u662F_u4E00_u4E2A_u5BF9_u8C61_uFF0C_u4E5F_u6709_u7740length_u7B49_u7B49_u7684_u53D8_u91CF_u3002_u5BF9_u8C61_u662F_u901A_u8FC7_u51FD_u6570_u521B_u5EFA_u7684_u3002_u6BD4_u5982" class="headerlink" title="JavaScript中，“一切都是对象”(值类型不是)，对象是一个属性的集合。函数也是一个对象，也有着length等等的变量。对象是通过函数创建的。比如"></a>JavaScript中，<strong>“一切都是对象”(值类型不是)，对象是一个属性的集合</strong>。函数也是一个对象，也有着length等等的变量。对象是通过函数创建的。比如</h6><pre><code>var obj = new Object();
+var arr = new Array();
+console.log(typeof (Object));  // function
+console.log(typeof (Array));  // function
+//这里Array(),Object()就是两个构造函数
+</code></pre><hr>
+<h4 id="u539F_u578B_u6A21_u5F0F"><a href="#u539F_u578B_u6A21_u5F0F" class="headerlink" title="原型模式"></a>原型模式</h4><h5 id="u4E0A_u9762_u8BF4_u5230_u7684_u4E24_u79CD_u521B_u5EFA_u5BF9_u8C61_u5B9E_u4F8B_u7684_u65B9_u5F0F_uFF0C_u76F8_u5F53_u4E8E_u662F_u628A_u4E00_u672C_u4E66_u76F4_u63A5_u590D_u5370_u4E86_u4E00_u904D_uFF0C_u53EF_u4EE5_u5BF9_u590D_u5370_u51FA_u6765_u7684_u4E66_u8FDB_u884C_u5404_u79CD_u4FEE_u6539_uFF0C_u4F46_u662F_u6BCF_u4E00_u4E2A_u5B9E_u4F8B_u5C31_u590D_u5370_u4E00_u904D_uFF0C_u591A_u6D6A_u8D39_u7EB8_u554A_28_u6D6A_u8D39_u5185_u5B58_29_u3002_u6240_u4EE5_u5C31_u6709_u4E86_u51FD_u6570_u539F_u578Bprototype"><a href="#u4E0A_u9762_u8BF4_u5230_u7684_u4E24_u79CD_u521B_u5EFA_u5BF9_u8C61_u5B9E_u4F8B_u7684_u65B9_u5F0F_uFF0C_u76F8_u5F53_u4E8E_u662F_u628A_u4E00_u672C_u4E66_u76F4_u63A5_u590D_u5370_u4E86_u4E00_u904D_uFF0C_u53EF_u4EE5_u5BF9_u590D_u5370_u51FA_u6765_u7684_u4E66_u8FDB_u884C_u5404_u79CD_u4FEE_u6539_uFF0C_u4F46_u662F_u6BCF_u4E00_u4E2A_u5B9E_u4F8B_u5C31_u590D_u5370_u4E00_u904D_uFF0C_u591A_u6D6A_u8D39_u7EB8_u554A_28_u6D6A_u8D39_u5185_u5B58_29_u3002_u6240_u4EE5_u5C31_u6709_u4E86_u51FD_u6570_u539F_u578Bprototype" class="headerlink" title="上面说到的两种创建对象实例的方式，相当于是把一本书直接复印了一遍，可以对复印出来的书进行各种修改，但是每一个实例就复印一遍，多浪费纸啊(浪费内存)。所以就有了函数原型prototype."></a>上面说到的两种创建对象实例的方式，相当于是把一本书直接复印了一遍，可以对复印出来的书进行各种修改，但是每一个实例就复印一遍，多浪费纸啊(浪费内存)。所以就有了函数原型prototype.</h5><pre><code>function Person(){}
+Person.prototype.name = &quot;rose&quot;;
+Person.prototype.age = 20;
+Person.prototype.job = &quot;student&quot;;
+Person.prototype.friends = [&quot;shalby&quot;,&quot;van&quot;];
+Person.prototype.sayName = function() {
+    console.log(this.name);
+};
+
+var person1 = new Person();
+</code></pre><h6 id="u901A_u8FC7_u51FD_u6570_u539F_u578B_u6765_u521B_u5EFA_u5B9E_u4F8B_uFF0C_u5C31_u50CF_u662Fcopy_u4E86_u4E00_u4EFD_u76EE_u5F55_28_u539F_u578B_u5C31_u50CF_u662F_u4E00_u4E2A_u6307_u9488_29_uFF0C_u9700_u8981_u627E_u54EA_u4E00_u7AE0_u8282_28_u8BBF_u95EE_u53D8_u91CF_u548C_u65B9_u6CD5_29_u5C31_u76F4_u63A5_u6309_u76EE_u5F55_u627E_uFF0C_u8FD9_u6837_u5C31_u5927_u5927_u51CF_u5C11_u4E86_u7EB8_u5F20_u7684_u6D6A_u8D39_28_u5185_u5B58_u7684_u82B1_u8D39_29_u3002_u4F46_u662F_u539F_u578B_u6A21_u5F0F_u4E5F_u6709_u4E00_u4E2A_u95EE_u9898_uFF0C_u5982_u679C_u4FEE_u6539_u5B9E_u4F8B_u7684_u5F15_u7528_u7C7B_u578B_u53D8_u91CF_uFF0C_u5C06_u4F1A_u76F4_u63A5_u4F53_u73B0_u5728_u539F_u578B_u4E0A-_u6BD4_u5982_u8BF4_uFF0C_u5982_u679C_u4FEE_u6539_u4E0A_u9762_u7684_u5B9E_u4F8Bperson1_u7684firends_u53D8_u91CF"><a href="#u901A_u8FC7_u51FD_u6570_u539F_u578B_u6765_u521B_u5EFA_u5B9E_u4F8B_uFF0C_u5C31_u50CF_u662Fcopy_u4E86_u4E00_u4EFD_u76EE_u5F55_28_u539F_u578B_u5C31_u50CF_u662F_u4E00_u4E2A_u6307_u9488_29_uFF0C_u9700_u8981_u627E_u54EA_u4E00_u7AE0_u8282_28_u8BBF_u95EE_u53D8_u91CF_u548C_u65B9_u6CD5_29_u5C31_u76F4_u63A5_u6309_u76EE_u5F55_u627E_uFF0C_u8FD9_u6837_u5C31_u5927_u5927_u51CF_u5C11_u4E86_u7EB8_u5F20_u7684_u6D6A_u8D39_28_u5185_u5B58_u7684_u82B1_u8D39_29_u3002_u4F46_u662F_u539F_u578B_u6A21_u5F0F_u4E5F_u6709_u4E00_u4E2A_u95EE_u9898_uFF0C_u5982_u679C_u4FEE_u6539_u5B9E_u4F8B_u7684_u5F15_u7528_u7C7B_u578B_u53D8_u91CF_uFF0C_u5C06_u4F1A_u76F4_u63A5_u4F53_u73B0_u5728_u539F_u578B_u4E0A-_u6BD4_u5982_u8BF4_uFF0C_u5982_u679C_u4FEE_u6539_u4E0A_u9762_u7684_u5B9E_u4F8Bperson1_u7684firends_u53D8_u91CF" class="headerlink" title="通过函数原型来创建实例，就像是copy了一份目录(原型就像是一个指针)，需要找哪一章节(访问变量和方法)就直接按目录找，这样就大大减少了纸张的浪费(内存的花费)。但是原型模式也有一个问题，如果修改实例的引用类型变量，将会直接体现在原型上.比如说，如果修改上面的实例person1的firends变量"></a>通过函数原型来创建实例，就像是copy了一份目录(原型就像是一个指针)，需要找哪一章节(访问变量和方法)就直接按目录找，这样就大大减少了纸张的浪费(内存的花费)。但是原型模式也有一个问题，如果修改实例的引用类型变量，将会直接体现在原型上.比如说，如果修改上面的实例person1的firends变量</h6><pre><code>person1.firends.push(&quot;andy&quot;);
+var person2 = new Person();
+console.log(person2.firends);//shably,van,andy
+</code></pre><h6 id="u53EF_u4EE5_u770B_u5230_u539F_u578B_u4E2D_u7684firends_u53D8_u91CF_u53D1_u751F_u4E86_u6539_u53D8_uFF0C_u5C31_u50CF_u4E4B_u524D_u5728_u6570_u636E_u7C7B_u578B_u4E2D_u8BF4_u7684_u90A3_u6837_uFF0C_u5F15_u7528_u7C7B_u578B_u53D8_u91CF_u5B58_u50A8_u5728_u6808_u5185_u5B58_u4E2D_u7684_u53EA_u662F_u4E00_u4E2A_u6307_u9488_uFF0C_u53D8_u91CF_u7684_u503C_u5B58_u50A8_u5728_u5806_u5185_u5B58_u4E2D_uFF0C_u6240_u4EE5_u4FEE_u6539_u5B9E_u4F8B_u7684_u5F15_u7528_u7C7B_u578B_u53D8_u91CF_uFF0C_u5C31_u662F_u4FEE_u6539_u4E86_u5806_u5185_u5B58_u91CC_u9762_u7684_u503C_u3002_u56E0_u4E3A_u8FD9_u6837_u7684_u95EE_u9898_uFF0C_u6240_u4EE5_u51FA_u73B0_u4E86_u7EC4_u5408_u4F7F_u7528_u6784_u9020_u51FD_u6570_u6A21_u578B_u548C_u539F_u578B_u6A21_u5F0F_u7684_u65B9_u6CD5"><a href="#u53EF_u4EE5_u770B_u5230_u539F_u578B_u4E2D_u7684firends_u53D8_u91CF_u53D1_u751F_u4E86_u6539_u53D8_uFF0C_u5C31_u50CF_u4E4B_u524D_u5728_u6570_u636E_u7C7B_u578B_u4E2D_u8BF4_u7684_u90A3_u6837_uFF0C_u5F15_u7528_u7C7B_u578B_u53D8_u91CF_u5B58_u50A8_u5728_u6808_u5185_u5B58_u4E2D_u7684_u53EA_u662F_u4E00_u4E2A_u6307_u9488_uFF0C_u53D8_u91CF_u7684_u503C_u5B58_u50A8_u5728_u5806_u5185_u5B58_u4E2D_uFF0C_u6240_u4EE5_u4FEE_u6539_u5B9E_u4F8B_u7684_u5F15_u7528_u7C7B_u578B_u53D8_u91CF_uFF0C_u5C31_u662F_u4FEE_u6539_u4E86_u5806_u5185_u5B58_u91CC_u9762_u7684_u503C_u3002_u56E0_u4E3A_u8FD9_u6837_u7684_u95EE_u9898_uFF0C_u6240_u4EE5_u51FA_u73B0_u4E86_u7EC4_u5408_u4F7F_u7528_u6784_u9020_u51FD_u6570_u6A21_u578B_u548C_u539F_u578B_u6A21_u5F0F_u7684_u65B9_u6CD5" class="headerlink" title="可以看到原型中的firends变量发生了改变，就像之前在数据类型中说的那样，引用类型变量存储在栈内存中的只是一个指针，变量的值存储在堆内存中，所以修改实例的引用类型变量，就是修改了堆内存里面的值。因为这样的问题，所以出现了组合使用构造函数模型和原型模式的方法"></a>可以看到原型中的firends变量发生了改变，就像之前在数据类型中说的那样，引用类型变量存储在栈内存中的只是一个指针，变量的值存储在堆内存中，所以修改实例的引用类型变量，就是修改了堆内存里面的值。因为这样的问题，所以出现了组合使用构造函数模型和原型模式的方法</h6><pre><code>function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = [&quot;shalby&quot;,&quot;van&quot;];
+}    
+Person.prototype = {
+    constructor : Person,
+    sayName: function() {
+        console.log(this.name);
+    }
+}
+
+var person1 = new Person(&quot;rose&quot;,20,&quot;student&quot;);
+person1.firends.push(&quot;andy&quot;);
+var person2 = new Person(&quot;Brooks&quot;,30,&quot;engineer&quot;);
+console.log(person2.friends);//shalby,van
+console.log(person1.friends);//shalby,van,andy
+</code></pre><h6 id="u901A_u8FC7_u7EC4_u5408_u4F7F_u7528_u4E24_u79CD_u6A21_u5F0F_uFF0C_u6784_u9020_u51FD_u6570_u4E2D_u7684_u53D8_u91CF_u548C_u65B9_u6CD5_u5C06_u4F1A_u5168_u90E8_u7684_u590D_u5236_u5230_u65B0_u5EFA_u7684_u5BF9_u8C61_u4E0A_uFF0C_u8FD9_u65F6_u5C31_u4E0D_u4F1A_u51FA_u73B0_u4E0A_u9762_u7684_u95EE_u9898_u4E86_u3002"><a href="#u901A_u8FC7_u7EC4_u5408_u4F7F_u7528_u4E24_u79CD_u6A21_u5F0F_uFF0C_u6784_u9020_u51FD_u6570_u4E2D_u7684_u53D8_u91CF_u548C_u65B9_u6CD5_u5C06_u4F1A_u5168_u90E8_u7684_u590D_u5236_u5230_u65B0_u5EFA_u7684_u5BF9_u8C61_u4E0A_uFF0C_u8FD9_u65F6_u5C31_u4E0D_u4F1A_u51FA_u73B0_u4E0A_u9762_u7684_u95EE_u9898_u4E86_u3002" class="headerlink" title="通过组合使用两种模式，构造函数中的变量和方法将会全部的复制到新建的对象上，这时就不会出现上面的问题了。"></a>通过组合使用两种模式，构造函数中的变量和方法将会全部的复制到新建的对象上，这时就不会出现上面的问题了。</h6><p>/<em>2015-12-5.这里做一个小小的修改,当时写的时候没有经过更深思考就写完了，今天重新翻开红宝书看到这一章时引发了新的思考\</em>/</p>
+<h5 id="u53C8_u770B_u4E86_u4E00_u904D_u7EA2_u5B9D_u4E66_uFF0C_u5F53_u770B_u5230_u8FD9_u91CC_u65F6_uFF0C_u56E0_u4E3A_u524D_u9762_u63D0_u5230_uFF0C_u5982_u679C_u53EA_u4FEE_u6539_u5B9E_u4F8B_u7684_u4E00_u4E2A_u57FA_u672C_u7C7B_u578B_u53D8_u91CF_uFF0C_u90A3_u4E48_u540E_u9762_u5728_u5F15_u7528_u65F6_uFF0C_u53EA_u641C_u7D22_u5230_u5B9E_u4F8B_u8FD9_u4E00_u5C42_u5C31_u627E_u5230_u4E86_u53D8_u91CF_u503C_uFF0C_u56E0_u6B64_u53EA_u4FEE_u6539_u57FA_u672C_u53D8_u91CF_u503C_u4E0D_u4F1A_u5F71_u54CD_u5230_u539F_u578B_uFF0C_u4E5F_u5C31_u662F_u8BF4_uFF0C_u8BE5_u6784_u9020_u51FD_u6570_u7684_u5176_u4ED6_u5B9E_u4F8B_u662F_u4E0D_u53D7_u5F71_u54CD_u7684_u3002_u90A3_u4E48_u65E2_u7136_u5982_u6B64_uFF0C_u5982_u679C_u6211_u53EA_u662F_u7ED9_u5B9E_u4F8B_u6DFB_u52A0_u4E00_u4E2A_u5F15_u7528_u7C7B_u578B_u7684_u503C_uFF0C_u5E76_u8FDB_u884C_u4FEE_u6539_uFF0C_u539F_u578B_u4E5F_u80AF_u5B9A_u4E0D_u4F1A_u53D8_u54AF_uFF01_u6709_u70B9_u7ED5_u53E3_uFF0C_u5148_u4E0A_u4EE3_u7801"><a href="#u53C8_u770B_u4E86_u4E00_u904D_u7EA2_u5B9D_u4E66_uFF0C_u5F53_u770B_u5230_u8FD9_u91CC_u65F6_uFF0C_u56E0_u4E3A_u524D_u9762_u63D0_u5230_uFF0C_u5982_u679C_u53EA_u4FEE_u6539_u5B9E_u4F8B_u7684_u4E00_u4E2A_u57FA_u672C_u7C7B_u578B_u53D8_u91CF_uFF0C_u90A3_u4E48_u540E_u9762_u5728_u5F15_u7528_u65F6_uFF0C_u53EA_u641C_u7D22_u5230_u5B9E_u4F8B_u8FD9_u4E00_u5C42_u5C31_u627E_u5230_u4E86_u53D8_u91CF_u503C_uFF0C_u56E0_u6B64_u53EA_u4FEE_u6539_u57FA_u672C_u53D8_u91CF_u503C_u4E0D_u4F1A_u5F71_u54CD_u5230_u539F_u578B_uFF0C_u4E5F_u5C31_u662F_u8BF4_uFF0C_u8BE5_u6784_u9020_u51FD_u6570_u7684_u5176_u4ED6_u5B9E_u4F8B_u662F_u4E0D_u53D7_u5F71_u54CD_u7684_u3002_u90A3_u4E48_u65E2_u7136_u5982_u6B64_uFF0C_u5982_u679C_u6211_u53EA_u662F_u7ED9_u5B9E_u4F8B_u6DFB_u52A0_u4E00_u4E2A_u5F15_u7528_u7C7B_u578B_u7684_u503C_uFF0C_u5E76_u8FDB_u884C_u4FEE_u6539_uFF0C_u539F_u578B_u4E5F_u80AF_u5B9A_u4E0D_u4F1A_u53D8_u54AF_uFF01_u6709_u70B9_u7ED5_u53E3_uFF0C_u5148_u4E0A_u4EE3_u7801" class="headerlink" title="又看了一遍红宝书，当看到这里时，因为前面提到，如果只修改实例的一个基本类型变量，那么后面在引用时，只搜索到实例这一层就找到了变量值，因此只修改基本变量值不会影响到原型，也就是说，该构造函数的其他实例是不受影响的。那么既然如此，如果我只是给实例添加一个引用类型的值，并进行修改，原型也肯定不会变咯！有点绕口，先上代码"></a>又看了一遍红宝书，当看到这里时，因为前面提到，如果只修改实例的一个基本类型变量，那么后面在引用时，只搜索到实例这一层就找到了变量值，因此只修改基本变量值不会影响到原型，也就是说，该构造函数的其他实例是不受影响的。那么既然如此，如果我只是给实例添加一个引用类型的值，并进行修改，原型也肯定不会变咯！有点绕口，先上代码</h5><pre><code>function Person() {
+}
+Person.prototype = {
+    constructor: Person,
+    name: &quot;rose&quot;,
+    age: 20,
+    friends: [&quot;andy&quot;,&quot;kawayi&quot;],
+    sayHi: function() { console.log(&quot;HI&quot;); }
+};
+
+var boy = new Person();
+var girl = new Person();
+boy.friends = [&quot;James&quot;];
+boy.friends.push(&quot;Jordan&quot;);
+console.log(boy.friends);  //James,Jordan
+console.log(girl.friends);  //andy,kawayi
+
+boy.sayHi = function() { console.log(&quot;HI,I hava changed&quot;); };
+boy.sayHi();   //HI,I hava changed
+girl.sayHi();   //HI
+</code></pre><h6 id="u4ECE_u4E0A_u9762_u7684_u4EE3_u7801_u53EF_u4EE5_u770B_u5230_uFF0C_u6211_u4EEC_u5B9E_u73B0_u4E86_u6211_u4EEC_u60F3_u8981_u7684_u6548_u679C_uFF0Cboy_u5B9E_u4F8B_u7684friends_u6570_u7EC4_u548CsayHi_u51FD_u6570_u53D1_u751F_u4E86_u53D8_u5316_uFF0C_u800C_u5176_u4ED6_u5B9E_u4F8B_u4ECD_u7136_u4ECE_u539F_u578B_u7EE7_u627F_u53D8_u91CF_u7684_u503C_u3002"><a href="#u4ECE_u4E0A_u9762_u7684_u4EE3_u7801_u53EF_u4EE5_u770B_u5230_uFF0C_u6211_u4EEC_u5B9E_u73B0_u4E86_u6211_u4EEC_u60F3_u8981_u7684_u6548_u679C_uFF0Cboy_u5B9E_u4F8B_u7684friends_u6570_u7EC4_u548CsayHi_u51FD_u6570_u53D1_u751F_u4E86_u53D8_u5316_uFF0C_u800C_u5176_u4ED6_u5B9E_u4F8B_u4ECD_u7136_u4ECE_u539F_u578B_u7EE7_u627F_u53D8_u91CF_u7684_u503C_u3002" class="headerlink" title="从上面的代码可以看到，我们实现了我们想要的效果，boy实例的friends数组和sayHi函数发生了变化，而其他实例仍然从原型继承变量的值。"></a>从上面的代码可以看到，我们实现了我们想要的效果，boy实例的friends数组和sayHi函数发生了变化，而其他实例仍然从原型继承变量的值。</h6><h6 id="u90A3_u8FD9_u5230_u5E95_u662F_u4E3A_u4EC0_u4E48_u5462_uFF1F_u4E3A_u4EC0_u4E48_u8FD9_u6837_u5C31_u53EF_u4EE5_u5B9E_u73B0_u4E86_u3002_u6211_u4EEC_u518D_u770B_u770B_u4E4B_u524D_u662F_u600E_u4E48_u5199_u7684"><a href="#u90A3_u8FD9_u5230_u5E95_u662F_u4E3A_u4EC0_u4E48_u5462_uFF1F_u4E3A_u4EC0_u4E48_u8FD9_u6837_u5C31_u53EF_u4EE5_u5B9E_u73B0_u4E86_u3002_u6211_u4EEC_u518D_u770B_u770B_u4E4B_u524D_u662F_u600E_u4E48_u5199_u7684" class="headerlink" title="那这到底是为什么呢？为什么这样就可以实现了。我们再看看之前是怎么写的"></a>那这到底是为什么呢？为什么这样就可以实现了。我们再看看之前是怎么写的</h6><pre><code>person1.firends.push(&quot;andy&quot;);
+var person2 = new Person();
+console.log(person2.firends);//shably,van,andy
+</code></pre><h6 id="u53EF_u4EE5_u770B_u5230_uFF0C_u4E4B_u524D_u662F_u76F4_u63A5push_uFF0C_u5728push_u4E4B_u524D_u662F_u76F4_u63A5_u8BBF_u95EE_u7684friends_u6570_u7EC4_uFF0C_u56E0_u4E3A_u6B64_u65F6_u53EA_u6709_u539F_u578B_u4E2D_u6709friends_u6570_u7EC4_uFF0C_u6240_u4EE5_u8FD9_u91CC_u7684_u6570_u7EC4_u80AF_u5B9A_u662F_u5F15_u7528_u7684_u539F_u578B_u4E2D_u7684_u6570_u7EC4_u3002_u6539_u53D8_u8FD9_u4E2A_u6570_u7EC4_u7684_u503C_uFF0C_u5176_u4ED6_u5B9E_u4F8B_u8BBF_u95EE_u6570_u7EC4_u8BBF_u95EE_u5230_u7684_u503C_u80AF_u5B9A_u662F_u6539_u53D8_u8FC7_u7684"><a href="#u53EF_u4EE5_u770B_u5230_uFF0C_u4E4B_u524D_u662F_u76F4_u63A5push_uFF0C_u5728push_u4E4B_u524D_u662F_u76F4_u63A5_u8BBF_u95EE_u7684friends_u6570_u7EC4_uFF0C_u56E0_u4E3A_u6B64_u65F6_u53EA_u6709_u539F_u578B_u4E2D_u6709friends_u6570_u7EC4_uFF0C_u6240_u4EE5_u8FD9_u91CC_u7684_u6570_u7EC4_u80AF_u5B9A_u662F_u5F15_u7528_u7684_u539F_u578B_u4E2D_u7684_u6570_u7EC4_u3002_u6539_u53D8_u8FD9_u4E2A_u6570_u7EC4_u7684_u503C_uFF0C_u5176_u4ED6_u5B9E_u4F8B_u8BBF_u95EE_u6570_u7EC4_u8BBF_u95EE_u5230_u7684_u503C_u80AF_u5B9A_u662F_u6539_u53D8_u8FC7_u7684" class="headerlink" title="可以看到，之前是直接push，在push之前是直接访问的friends数组，因为此时只有原型中有friends数组，所以这里的数组肯定是引用的原型中的数组。改变这个数组的值，其他实例访问数组访问到的值肯定是改变过的"></a>可以看到，之前是直接push，在push之前是直接访问的friends数组，因为此时只有原型中有friends数组，所以这里的数组肯定是引用的原型中的数组。改变这个数组的值，其他实例访问数组访问到的值肯定是改变过的</h6><h6 id="u4E3A_u4EC0_u4E48_u6211_u4EEC_u540E_u9762_u7684_u5199_u6CD5_u662F_u5BF9_u7684_u5462_uFF1F_u56E0_u4E3A_u6211_u4EEC_u4E0D_u662F_u8BBF_u95EE_u7684_u539F_u578B_u4E2D_u7684friends_u6570_u7EC4_uFF0C_u800C_u662F_u521B_u5EFA_u4E86_u4E00_u4E2A_u6570_u7EC4_uFF0C_u7136_u540E_u5BF9_u4ED6_u8FDB_u884C_u6539_u53D8_uFF0C_u56E0_u4E3A_u8FD9_u4E2A_u6570_u7EC4_u53EA_u662Fboy_u5B9E_u4F8B_u7684_u4E00_u4E2A_u79C1_u6709_u53D8_u91CF_uFF0C_u6240_u4EE5_u5176_u4ED6_u5B9E_u4F8B_u8BBF_u95EE_u4E0D_u5230_uFF0C_u5F97_u8FDB_u884C_u4E0B_u4E00_u7EA7_u641C_u7D22_uFF0C_u627E_u5230_u4E86_u539F_u578B_u4E2D_u7684friends_u6570_u7EC4_u3002"><a href="#u4E3A_u4EC0_u4E48_u6211_u4EEC_u540E_u9762_u7684_u5199_u6CD5_u662F_u5BF9_u7684_u5462_uFF1F_u56E0_u4E3A_u6211_u4EEC_u4E0D_u662F_u8BBF_u95EE_u7684_u539F_u578B_u4E2D_u7684friends_u6570_u7EC4_uFF0C_u800C_u662F_u521B_u5EFA_u4E86_u4E00_u4E2A_u6570_u7EC4_uFF0C_u7136_u540E_u5BF9_u4ED6_u8FDB_u884C_u6539_u53D8_uFF0C_u56E0_u4E3A_u8FD9_u4E2A_u6570_u7EC4_u53EA_u662Fboy_u5B9E_u4F8B_u7684_u4E00_u4E2A_u79C1_u6709_u53D8_u91CF_uFF0C_u6240_u4EE5_u5176_u4ED6_u5B9E_u4F8B_u8BBF_u95EE_u4E0D_u5230_uFF0C_u5F97_u8FDB_u884C_u4E0B_u4E00_u7EA7_u641C_u7D22_uFF0C_u627E_u5230_u4E86_u539F_u578B_u4E2D_u7684friends_u6570_u7EC4_u3002" class="headerlink" title="为什么我们后面的写法是对的呢？因为我们不是访问的原型中的friends数组，而是创建了一个数组，然后对他进行改变，因为这个数组只是boy实例的一个私有变量，所以其他实例访问不到，得进行下一级搜索，找到了原型中的friends数组。"></a>为什么我们后面的写法是对的呢？因为我们不是访问的原型中的friends数组，而是创建了一个数组，然后对他进行改变，因为这个数组只是boy实例的一个私有变量，所以其他实例访问不到，得进行下一级搜索，找到了原型中的friends数组。</h6><h6 id="u597D_u4E86_uFF0C_u6709_u4EBA_u8BF4_u8FD9_u6837_u53EA_u80FD_u65B0_u5EFA_u4E00_u4E2A_u53D8_u91CF_uFF0C_u4E0D_u80FD_u76F4_u63A5_u4FEE_u6539_uFF0C_u90A3_u5148_u8BBF_u95EE_u4EE5_u4E0B_u4E0D_u5C31_u597D_u4E86_uFF0C_u5C31_u50CF_u8FD9_u6837"><a href="#u597D_u4E86_uFF0C_u6709_u4EBA_u8BF4_u8FD9_u6837_u53EA_u80FD_u65B0_u5EFA_u4E00_u4E2A_u53D8_u91CF_uFF0C_u4E0D_u80FD_u76F4_u63A5_u4FEE_u6539_uFF0C_u90A3_u5148_u8BBF_u95EE_u4EE5_u4E0B_u4E0D_u5C31_u597D_u4E86_uFF0C_u5C31_u50CF_u8FD9_u6837" class="headerlink" title="好了，有人说这样只能新建一个变量，不能直接修改，那先访问以下不就好了，就像这样"></a>好了，有人说这样只能新建一个变量，不能直接修改，那先访问以下不就好了，就像这样</h6><pre><code>boy.friends = girl.friends;
+boy.friends.push(&quot;James&quot;);
+</code></pre><h6 id="u8FD9_u6837_u5C31_u59A5_u59A5_u7684_u4E86_u3002_u90A3_u8FD9_u6709_u4EC0_u4E48_u7528_u4E86_uFF0C_u6211_u53EF_u4EE5_u7528_u7EC4_u5408_u4F7F_u7528_u51FD_u6570_u6A21_u5F0F_u548C_u539F_u578B_u6A21_u5F0F_u6765_u66FF_u4EE3_u554A_uFF0C_u7EC4_u5408_u6A21_u5F0F_u6BCF_u521B_u5EFA_u4E00_u4E2A_u5BF9_u8C61_u5C31_u8981_u5206_u914D_u4E00_u5757_u5185_u5B58_u6765_u5B58_u6784_u9020_u51FD_u6570_u751F_u6210_u7684_u4E1C_u897F_uFF0C_u5185_u5B58_u4E0D_u8981_u94B1_u554A_uFF1F_uFF01_u5F53_u7136_uFF0C_u8FD9_u79CD_u6A21_u5F0F_u9002_u5408_u5171_u4EAB_u7684_u4E1C_u897F_u6BD4_u8F83_u666E_u904D_uFF0C_u6BCF_u4E2A_u5B9E_u4F8B_u57FA_u672C_u4E00_u6837_u3002_u5982_u679C_u5F88_u591A_u5B9E_u4F8B_u7684_u8FD9_u4E9B_u5C5E_u6027_u90FD_u4E0D_u4E00_u6837_uFF0C_u90A3_u4E48_u5C31_u5E94_u8BE5_u4F7F_u7528_u7EC4_u5408_u6A21_u5F0F"><a href="#u8FD9_u6837_u5C31_u59A5_u59A5_u7684_u4E86_u3002_u90A3_u8FD9_u6709_u4EC0_u4E48_u7528_u4E86_uFF0C_u6211_u53EF_u4EE5_u7528_u7EC4_u5408_u4F7F_u7528_u51FD_u6570_u6A21_u5F0F_u548C_u539F_u578B_u6A21_u5F0F_u6765_u66FF_u4EE3_u554A_uFF0C_u7EC4_u5408_u6A21_u5F0F_u6BCF_u521B_u5EFA_u4E00_u4E2A_u5BF9_u8C61_u5C31_u8981_u5206_u914D_u4E00_u5757_u5185_u5B58_u6765_u5B58_u6784_u9020_u51FD_u6570_u751F_u6210_u7684_u4E1C_u897F_uFF0C_u5185_u5B58_u4E0D_u8981_u94B1_u554A_uFF1F_uFF01_u5F53_u7136_uFF0C_u8FD9_u79CD_u6A21_u5F0F_u9002_u5408_u5171_u4EAB_u7684_u4E1C_u897F_u6BD4_u8F83_u666E_u904D_uFF0C_u6BCF_u4E2A_u5B9E_u4F8B_u57FA_u672C_u4E00_u6837_u3002_u5982_u679C_u5F88_u591A_u5B9E_u4F8B_u7684_u8FD9_u4E9B_u5C5E_u6027_u90FD_u4E0D_u4E00_u6837_uFF0C_u90A3_u4E48_u5C31_u5E94_u8BE5_u4F7F_u7528_u7EC4_u5408_u6A21_u5F0F" class="headerlink" title="这样就妥妥的了。那这有什么用了，我可以用组合使用函数模式和原型模式来替代啊，组合模式每创建一个对象就要分配一块内存来存构造函数生成的东西，内存不要钱啊？！当然，这种模式适合共享的东西比较普遍，每个实例基本一样。如果很多实例的这些属性都不一样，那么就应该使用组合模式"></a>这样就妥妥的了。那这有什么用了，我可以用组合使用函数模式和原型模式来替代啊，组合模式每创建一个对象就要分配一块内存来存构造函数生成的东西，内存不要钱啊？！当然，这种模式适合共享的东西比较普遍，每个实例基本一样。如果很多实例的这些属性都不一样，那么就应该使用组合模式</h6><hr>
+<h4 id="u539F_u578B_u94FE"><a href="#u539F_u578B_u94FE" class="headerlink" title="原型链"></a>原型链</h4><h5 id="u524D_u9762_u8BF4_u8FC7_u53EF_u4EE5_u4FEE_u6539_u539F_u578B_u6A21_u5F0F_u5B9E_u4F8B_u7684_u57FA_u672C_u7C7B_u578B_u53D8_u91CF_uFF0C_u5E76_u4E14_u53EA_u4F53_u73B0_u5728_u5B9E_u4F8B_u4E0A_u3002_u90A3_u4E48_u4E3A_u4EC0_u4E48_u5462_uFF1F_u662F_u5982_u679C_u76F4_u63A5_u8986_u76D6_u4E86_u6808_u5185_u5B58_u4E2D_u7684_u503C_uFF0C_u90A3_u4E48_u539F_u578B_u4E2D_u53D8_u91CF_u503C_u4E0D_u4E5F_u53D8_u4E86_u5417_3F_u7A76_u7ADF_u662F_u600E_u4E48_u56DE_u4E8B_u5462_uFF1F_u8BA9_u6211_u4EEC_u6765_u770B_u770B_u539F_u578B_u94FE_u5230_u5E95_u662F_u4E2A_u4EC0_u4E48_u9B3C_u3002_u8FD8_u662F_u8FD9_u4E2A_u4F8B_u5B50"><a href="#u524D_u9762_u8BF4_u8FC7_u53EF_u4EE5_u4FEE_u6539_u539F_u578B_u6A21_u5F0F_u5B9E_u4F8B_u7684_u57FA_u672C_u7C7B_u578B_u53D8_u91CF_uFF0C_u5E76_u4E14_u53EA_u4F53_u73B0_u5728_u5B9E_u4F8B_u4E0A_u3002_u90A3_u4E48_u4E3A_u4EC0_u4E48_u5462_uFF1F_u662F_u5982_u679C_u76F4_u63A5_u8986_u76D6_u4E86_u6808_u5185_u5B58_u4E2D_u7684_u503C_uFF0C_u90A3_u4E48_u539F_u578B_u4E2D_u53D8_u91CF_u503C_u4E0D_u4E5F_u53D8_u4E86_u5417_3F_u7A76_u7ADF_u662F_u600E_u4E48_u56DE_u4E8B_u5462_uFF1F_u8BA9_u6211_u4EEC_u6765_u770B_u770B_u539F_u578B_u94FE_u5230_u5E95_u662F_u4E2A_u4EC0_u4E48_u9B3C_u3002_u8FD8_u662F_u8FD9_u4E2A_u4F8B_u5B50" class="headerlink" title="前面说过可以修改原型模式实例的基本类型变量，并且只体现在实例上。那么为什么呢？是如果直接覆盖了栈内存中的值，那么原型中变量值不也变了吗?究竟是怎么回事呢？让我们来看看原型链到底是个什么鬼。还是这个例子"></a>前面说过可以修改原型模式实例的基本类型变量，并且只体现在实例上。那么为什么呢？是如果直接覆盖了栈内存中的值，那么原型中变量值不也变了吗?究竟是怎么回事呢？让我们来看看原型链到底是个什么鬼。还是这个例子</h5><pre><code>function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = [&quot;shalby&quot;,&quot;van&quot;];
+}    
+Person.prototype = {
+    constructor : Person,
+    sayName: function() {
+        console.log(this.name);
+    }
+}
+
+var person1 = new Person(&quot;rose&quot;,20,&quot;student&quot;);
+person1.email = &quot;xxx@xxx.com&quot;;//给实例对象添加一个属性
+</code></pre><p><img src="http://i.imgur.com/weuzO9a.png" alt=""></p>
+<h6 id="u4E0A_u56FE_u662F_u4F8B_u5B50_u4E2D_u7684_u5B9E_u4F8B_u4EE5_u53CA_u6784_u9020_u51FD_u6570_u548C_u539F_u578B_u4E4B_u95F4_u7684_u5173_u7CFB_u3002_u539F_u578B_u4E2D_u7684constructor_u5C5E_u6027_u6307_u5411_u6784_u9020_u51FD_u6570_uFF0C_u5B9E_u4F8B_u4E2D_u7684_u9ED8_u8BA4_u5C5E_u6027_5B_5Bprototype_5D_5D_u6307_u5411_u539F_u578B_uFF0C_u6B64_u65F6_u7ED9_u5B9E_u4F8B_u6DFB_u52A0_u4E00_u4E2A_u5C5E_u6027email_uFF0C_u5C31_u53EA_u662F_u52A0_u5728_u5B9E_u4F8B_u5BF9_u8C61_u4E0A_uFF0C_u5B9E_u4F8B_u8BBF_u95EE_u5C5E_u6027_u6216_u65B9_u6CD5_u6700_u591A_u4F1A_u7ECF_u8FC7_u8FD9_u4E48_u4E09_u4E2A_u6B65_u9AA4_uFF1A1_29_u641C_u7D22_u5B9E_u4F8B_u30022_29_u641C_u7D22_u539F_u578B_u30023_uFF09_u641C_u7D22Object-prototype_28_u56FE_u4E2D_u6CA1_u6709_u753B_u51FA_u6765_uFF0C_u662F_u9ED8_u8BA4_u7684_u539F_u578B_uFF0C_u6709hasOwnProperty_u7B49_u91CD_u8981_u65B9_u6CD5_29_u3002"><a href="#u4E0A_u56FE_u662F_u4F8B_u5B50_u4E2D_u7684_u5B9E_u4F8B_u4EE5_u53CA_u6784_u9020_u51FD_u6570_u548C_u539F_u578B_u4E4B_u95F4_u7684_u5173_u7CFB_u3002_u539F_u578B_u4E2D_u7684constructor_u5C5E_u6027_u6307_u5411_u6784_u9020_u51FD_u6570_uFF0C_u5B9E_u4F8B_u4E2D_u7684_u9ED8_u8BA4_u5C5E_u6027_5B_5Bprototype_5D_5D_u6307_u5411_u539F_u578B_uFF0C_u6B64_u65F6_u7ED9_u5B9E_u4F8B_u6DFB_u52A0_u4E00_u4E2A_u5C5E_u6027email_uFF0C_u5C31_u53EA_u662F_u52A0_u5728_u5B9E_u4F8B_u5BF9_u8C61_u4E0A_uFF0C_u5B9E_u4F8B_u8BBF_u95EE_u5C5E_u6027_u6216_u65B9_u6CD5_u6700_u591A_u4F1A_u7ECF_u8FC7_u8FD9_u4E48_u4E09_u4E2A_u6B65_u9AA4_uFF1A1_29_u641C_u7D22_u5B9E_u4F8B_u30022_29_u641C_u7D22_u539F_u578B_u30023_uFF09_u641C_u7D22Object-prototype_28_u56FE_u4E2D_u6CA1_u6709_u753B_u51FA_u6765_uFF0C_u662F_u9ED8_u8BA4_u7684_u539F_u578B_uFF0C_u6709hasOwnProperty_u7B49_u91CD_u8981_u65B9_u6CD5_29_u3002" class="headerlink" title="上图是例子中的实例以及构造函数和原型之间的关系。原型中的constructor属性指向构造函数，实例中的默认属性[[prototype]]指向原型，此时给实例添加一个属性email，就只是加在实例对象上，实例访问属性或方法最多会经过这么三个步骤：1)搜索实例。2)搜索原型。3）搜索Object.prototype(图中没有画出来，是默认的原型，有hasOwnProperty等重要方法)。"></a>上图是例子中的实例以及构造函数和原型之间的关系。原型中的constructor属性指向构造函数，实例中的默认属性[[prototype]]指向原型，此时给实例添加一个属性email，就只是加在实例对象上，实例访问属性或方法最多会经过这么三个步骤：1)搜索实例。2)搜索原型。3）搜索Object.prototype(图中没有画出来，是默认的原型，有hasOwnProperty等重要方法)。</h6><h6 id="u539F_u578B_u548C_u539F_u578B_u94FE_u5DEE_u4E0D_u591A_u5C31_u8BF4_u5230_u8FD9_u4E86_u3002_u6709_u51E0_u4E2A_u9700_u8981_u5C0F_u5FC3_u6CE8_u610F_u7684_u70B9_u30021_uFF09_u5982_u679C_u5728_u5B9E_u4F8B_u5316_u4E00_u4E2A_u5BF9_u8C61_u540E_u91CD_u5199_u539F_u578B_uFF0C_u5B9E_u4F8B_u4E0D_u4F1A_u6307_u5411_u65B0_u539F_u578B"><a href="#u539F_u578B_u548C_u539F_u578B_u94FE_u5DEE_u4E0D_u591A_u5C31_u8BF4_u5230_u8FD9_u4E86_u3002_u6709_u51E0_u4E2A_u9700_u8981_u5C0F_u5FC3_u6CE8_u610F_u7684_u70B9_u30021_uFF09_u5982_u679C_u5728_u5B9E_u4F8B_u5316_u4E00_u4E2A_u5BF9_u8C61_u540E_u91CD_u5199_u539F_u578B_uFF0C_u5B9E_u4F8B_u4E0D_u4F1A_u6307_u5411_u65B0_u539F_u578B" class="headerlink" title="原型和原型链差不多就说到这了。有几个需要小心注意的点。1）如果在实例化一个对象后重写原型，实例不会指向新原型"></a>原型和原型链差不多就说到这了。有几个需要小心注意的点。1）如果在实例化一个对象后重写原型，实例不会指向新原型</h6><pre><code>function Person(){};
+var person1 = new Person();
+Person.prototype = {
+    name: &quot;rose&quot;,
+    sayName: function(){
+        console.log(this.name);
+    }
+}
+console.log(person1.name);//会输出空格，默认值是空格
+person1.sayName();//会报错
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/13/JavaScript作用域学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript作用域学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/13/JavaScript闭包学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript闭包学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript原型学习笔记" data-title="JavaScript原型学习笔记" data-url="http://yoursite.com/2016/01/13/JavaScript原型学习笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Andy
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
