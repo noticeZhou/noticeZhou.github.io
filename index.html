@@ -195,6 +195,66 @@
 
       <div class="body-wrap">
   
+    <article id="post-JavaScript函数参数传递" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/JavaScript函数参数传递/" class="article-date">
+  	<time datetime="2016-04-05T08:37:25.000Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/JavaScript函数参数传递/">JavaScript函数参数传递</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大家都知道js参数传递是按值传递，传递参数的时候就直接将实参复制给形参就可以了。但是，我们知道js有两种数据类型，分别为基本类型和引用类型。两种类型的复制是不一样的，我们先来看一下复制。<br>基本类型的值就是保存在内存中，复制很简单，就是直接将变量的值copy到新变量对应的内存空间中就ok了。但是，引用类型有些不一样，因为引用类型存储在内存中的值只是一个指针，指向引用类型，而引用类型本身是保存在堆中的。所以只是一个对象的变量名赋值给一个新的变量的拷贝，叫做浅拷贝，只是把对象的指针复制给了新变量。这样造成的后果就是，两者的改变是相关的，只要有一个变了，另一个跟着就会变
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/05/JavaScript函数参数传递/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-关于inline-block" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -529,66 +589,10 @@ var person1 = createPerson(&quot;rose&quot;,20,&quot;student&quot;);
 
 
   
-    <article id="post-JavaScript闭包学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/01/13/JavaScript闭包学习笔记/" class="article-date">
-  	<time datetime="2016-01-13T12:45:36.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/JavaScript闭包学习笔记/">JavaScript闭包学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="u4EC0_u4E48_u662F_u95ED_u5305_uFF1F"><a href="#u4EC0_u4E48_u662F_u95ED_u5305_uFF1F" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><h6 id="u770B_u4E86_u4E00_u5806_u7684_u4E13_u4E1A_u6587_u732E_u7684_u89E3_u91CA_uFF0C_u8D8A_u770B_u8D8A_u7CCA_u6D82_uFF0C_u7136_u540E_u770B_u51E0_u4E2A_u6817_u5B50_uFF0C_u8FD4_u8FC7_u5934_u6765_u770B_uFF0C_u95ED_u5305_u5C31_u662F_u5B9A_u4E49_u5728_u4E00_u4E2A_u51FD_u6570_u5185_u90E8_uFF0C_u9700_u8981_u8BBF_u95EE_u5916_u5C42_u51FD_u6570_u7684_u53D8_u91CF_u7684_u51FD_u6570_u3002"><a href="#u770B_u4E86_u4E00_u5806_u7684_u4E13_u4E1A_u6587_u732E_u7684_u89E3_u91CA_uFF0C_u8D8A_u770B_u8D8A_u7CCA_u6D82_uFF0C_u7136_u540E_u770B_u51E0_u4E2A_u6817_u5B50_uFF0C_u8FD4_u8FC7_u5934_u6765_u770B_uFF0C_u95ED_u5305_u5C31_u662F_u5B9A_u4E49_u5728_u4E00_u4E2A_u51FD_u6570_u5185_u90E8_uFF0C_u9700_u8981_u8BBF_u95EE_u5916_u5C42_u51FD_u6570_u7684_u53D8_u91CF_u7684_u51FD_u6570_u3002" class="headerlink" title="看了一堆的专业文献的解释，越看越糊涂，然后看几个栗子，返过头来看，闭包就是定义在一个函数内部，需要访问外层函数的变量的函数。"></a>看了一堆的专业文献的解释，越看越糊涂，然后看几个栗子，返过头来看，闭包就是定义在一个函数内部，需要访问外层函数的变量的函数。</h6>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/13/JavaScript闭包学习笔记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
