@@ -18,7 +18,7 @@
 任何执行上下文时的作用域，都是作用域链来实现
 在一个函数定义的时候，会将它定义时的作用域链链接到这个函数对象的[[scope]]属性
 在一个函数对象被调用的时候，会创建一个活动对象，然后对于没一个函数的形参，都命名为该活动对象的命名属性，然后将这个活动对象作为此时的作用域链最前端，并将这个函数对象的[[scope]]加入到作用域链中">
-<meta property="og:updated_time" content="2016-01-13T13:34:42.755Z">
+<meta property="og:updated_time" content="2016-04-13T12:58:55.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript作用域学习笔记">
 <meta name="twitter:description" content="JS作用域的实现使用的是列表
@@ -129,7 +129,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
 					</div>
 				</section>
 				
@@ -229,7 +229,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
         
@@ -243,11 +243,16 @@
         <h4 id="JS_u4F5C_u7528_u57DF_u7684_u5B9E_u73B0_u4F7F_u7528_u7684_u662F_u5217_u8868"><a href="#JS_u4F5C_u7528_u57DF_u7684_u5B9E_u73B0_u4F7F_u7528_u7684_u662F_u5217_u8868" class="headerlink" title="JS作用域的实现使用的是列表"></a>JS作用域的实现使用的是列表</h4><ul>
 <li>任何执行上下文时的作用域，都是作用域链来实现</li>
 <li>在一个函数定义的时候，会将它定义时的作用域链链接到这个函数对象的[[scope]]属性</li>
-<li>在一个函数对象被调用的时候，会创建一个活动对象，然后对于没一个函数的形参，都命名为该活动对象的命名属性，然后将这个活动对象作为此时的作用域链最前端，并将这个函数对象的[[scope]]加入到作用域链中<a id="more"></a>
-<h3 id="u7528_u4E00_u4E2A_u51FD_u6570_u5B9E_u73B0_u7684_u8FC7_u7A0B_u6765_u89E3_u91CAJS_u4F5C_u7528_u57DF_u94FE"><a href="#u7528_u4E00_u4E2A_u51FD_u6570_u5B9E_u73B0_u7684_u8FC7_u7A0B_u6765_u89E3_u91CAJS_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="用一个函数实现的过程来解释JS作用域链"></a>用一个函数实现的过程来解释JS作用域链</h3><h6 id="1_u3001_u5B9A_u4E49_u51FD_u6570"><a href="#1_u3001_u5B9A_u4E49_u51FD_u6570" class="headerlink" title="1、定义函数"></a>1、定义函数</h6>  var func = function(fp,sp) {<pre><code>var name = &quot;andy&quot;;
-</code></pre>  }</li>
+<li>在一个函数对象被调用的时候，会创建一个活动对象，然后对于没一个函数的形参，都命名为该活动对象的命名属性，然后将这个活动对象作为此时的作用域链最前端，并将这个函数对象的[[scope]]加入到作用域链中  </li>
 </ul>
-<h6 id="u5728_u6267_u884C_u51FD_u6570_u5B9A_u4E49_u8BED_u53E5_u7684_u65F6_u5019_uFF0C_u4F1A_u521B_u5EFA_u8FD9_u4E2A_u51FD_u6570_u5BF9_u8C61_u7684_5B_5Bscope_5D_5D_u5BF9_u8C61_uFF0C_u628A_u5B83_u52A0_u5230_u6B64_u65F6_u7684_u4F5C_u7528_u57DF_u94FE_u4E0A_uFF0C_u8FD9_u91CC_u7684_u4F5C_u7528_u57DF_u5B9E_u9645_u4E0A_u53EA_u662F_u5168_u5C40_u6D3B_u52A8_u5BF9_u8C61"><a href="#u5728_u6267_u884C_u51FD_u6570_u5B9A_u4E49_u8BED_u53E5_u7684_u65F6_u5019_uFF0C_u4F1A_u521B_u5EFA_u8FD9_u4E2A_u51FD_u6570_u5BF9_u8C61_u7684_5B_5Bscope_5D_5D_u5BF9_u8C61_uFF0C_u628A_u5B83_u52A0_u5230_u6B64_u65F6_u7684_u4F5C_u7528_u57DF_u94FE_u4E0A_uFF0C_u8FD9_u91CC_u7684_u4F5C_u7528_u57DF_u5B9E_u9645_u4E0A_u53EA_u662F_u5168_u5C40_u6D3B_u52A8_u5BF9_u8C61" class="headerlink" title="在执行函数定义语句的时候，会创建这个函数对象的[[scope]]对象，把它加到此时的作用域链上，这里的作用域实际上只是全局活动对象"></a>在执行函数定义语句的时候，会创建这个函数对象的[[scope]]对象，把它加到此时的作用域链上，这里的作用域实际上只是全局活动对象</h6><h6 id="2_u3001JS_u5F15_u64CE_u9884_u7F16_u8BD1_uFF0C_u521B_u5EFA_u4E00_u4E2A_u6D3B_u52A8_u5BF9_u8C61obj_uFF0C_u521B_u5EFAarguements_u5C5E_u6027_uFF0C_u6DFB_u52A0_u4E24_u4E2A_u547D_u540D_u5C5E_u6027_uFF0Cobj-fp_2Cobj-sp-_u5BF9_u4E8E_u6BCF_u4E00_u4E2A_u5728_u8FD9_u4E2A_u51FD_u6570_u4E2D_u7533_u660E_u7684_u5C40_u90E8_u53D8_u91CF_u548C_u51FD_u6570_u5B9A_u4E49_uFF0C_u90FD_u4F5C_u4E3A_u8FD9_u4E2A_u6D3B_u52A8_u5BF9_u8C61_u7684_u5C5E_u6027"><a href="#2_u3001JS_u5F15_u64CE_u9884_u7F16_u8BD1_uFF0C_u521B_u5EFA_u4E00_u4E2A_u6D3B_u52A8_u5BF9_u8C61obj_uFF0C_u521B_u5EFAarguements_u5C5E_u6027_uFF0C_u6DFB_u52A0_u4E24_u4E2A_u547D_u540D_u5C5E_u6027_uFF0Cobj-fp_2Cobj-sp-_u5BF9_u4E8E_u6BCF_u4E00_u4E2A_u5728_u8FD9_u4E2A_u51FD_u6570_u4E2D_u7533_u660E_u7684_u5C40_u90E8_u53D8_u91CF_u548C_u51FD_u6570_u5B9A_u4E49_uFF0C_u90FD_u4F5C_u4E3A_u8FD9_u4E2A_u6D3B_u52A8_u5BF9_u8C61_u7684_u5C5E_u6027" class="headerlink" title="2、JS引擎预编译，创建一个活动对象obj，创建arguements属性，添加两个命名属性，obj.fp,obj.sp.对于每一个在这个函数中申明的局部变量和函数定义，都作为这个活动对象的属性"></a>2、JS引擎预编译，创建一个活动对象obj，创建arguements属性，添加两个命名属性，obj.fp,obj.sp.对于每一个在这个函数中申明的局部变量和函数定义，都作为这个活动对象的属性</h6><h6 id="3_u3001_u8C03_u7528_u51FD_u6570_u3002_u5C06_u8C03_u7528_u53C2_u6570_u4F20_u7ED9_u5F62_u53C2_uFF0C_u7F3A_u7701_u4E3Aundefined_u3002_u7136_u540E_u5C06_u8FD9_u4E2A_u6D3B_u52A8_u5BF9_u8C61_u4F5C_u4E3A_u4F5C_u7528_u57DF_u94FE_u7684_u6700_u524D_u7AEF_uFF0C_u5E76_u5C06_u5B9A_u4E49_u51FD_u6570_u65F6_u6240_u6307_u5411_u7684_u6D3B_u52A8_u5BF9_u8C61_u6DFB_u52A0_u5230_u4F5C_u7528_u57DF_u94FE"><a href="#3_u3001_u8C03_u7528_u51FD_u6570_u3002_u5C06_u8C03_u7528_u53C2_u6570_u4F20_u7ED9_u5F62_u53C2_uFF0C_u7F3A_u7701_u4E3Aundefined_u3002_u7136_u540E_u5C06_u8FD9_u4E2A_u6D3B_u52A8_u5BF9_u8C61_u4F5C_u4E3A_u4F5C_u7528_u57DF_u94FE_u7684_u6700_u524D_u7AEF_uFF0C_u5E76_u5C06_u5B9A_u4E49_u51FD_u6570_u65F6_u6240_u6307_u5411_u7684_u6D3B_u52A8_u5BF9_u8C61_u6DFB_u52A0_u5230_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="3、调用函数。将调用参数传给形参，缺省为undefined。然后将这个活动对象作为作用域链的最前端，并将定义函数时所指向的活动对象添加到作用域链"></a>3、调用函数。将调用参数传给形参，缺省为undefined。然后将这个活动对象作为作用域链的最前端，并将定义函数时所指向的活动对象添加到作用域链</h6><h6 id="u53D1_u751F_u6807_u8BC6_u7B26_u89E3_u6790_u65F6_uFF0C_u4ECE_u5F53_u524D_u6D3B_u52A8_u5BF9_u8C61_u5F00_u59CB_u4F9D_u6B21_u5F80_u540E_u67E5_u627E_u6807_u8BC6_u7B26_uFF0C_u5982_u679C_u4E00_u76F4_u627E_u4E0D_u5230_uFF0C_u5219_u8868_u793A_u8BE5_u6807_u8BC6_u7B26_u6CA1_u6709_u5B9A_u4E49"><a href="#u53D1_u751F_u6807_u8BC6_u7B26_u89E3_u6790_u65F6_uFF0C_u4ECE_u5F53_u524D_u6D3B_u52A8_u5BF9_u8C61_u5F00_u59CB_u4F9D_u6B21_u5F80_u540E_u67E5_u627E_u6807_u8BC6_u7B26_uFF0C_u5982_u679C_u4E00_u76F4_u627E_u4E0D_u5230_uFF0C_u5219_u8868_u793A_u8BE5_u6807_u8BC6_u7B26_u6CA1_u6709_u5B9A_u4E49" class="headerlink" title="发生标识符解析时，从当前活动对象开始依次往后查找标识符，如果一直找不到，则表示该标识符没有定义"></a>发生标识符解析时，从当前活动对象开始依次往后查找标识符，如果一直找不到，则表示该标识符没有定义</h6><h4 id="u4E3E_u4E2A_u6817_u5B50"><a href="#u4E3E_u4E2A_u6817_u5B50" class="headerlink" title="举个栗子"></a>举个栗子</h4><pre><code>var name = &apos;andy&apos;;
+<hr>
+<a id="more"></a>
+<h3 id="u7528_u4E00_u4E2A_u51FD_u6570_u5B9E_u73B0_u7684_u8FC7_u7A0B_u6765_u89E3_u91CAJS_u4F5C_u7528_u57DF_u94FE"><a href="#u7528_u4E00_u4E2A_u51FD_u6570_u5B9E_u73B0_u7684_u8FC7_u7A0B_u6765_u89E3_u91CAJS_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="用一个函数实现的过程来解释JS作用域链"></a>用一个函数实现的过程来解释JS作用域链</h3><p>1、定义函数  </p>
+<pre><code>var func = function(fp,sp) {
+    var name = &quot;andy&quot;;
+}  
+</code></pre><p>在执行函数定义语句的时候，会创建这个函数对象的[[scope]]对象，把它加到此时的作用域链上，这里的作用域实际上只是全局活动对象<br>2、JS引擎预编译，创建一个活动对象obj，创建arguements属性，添加两个命名属性，obj.fp,obj.sp.对于每一个在这个函数中申明的局部变量和函数定义，都作为这个活动对象的属性<br>3、调用函数。将调用参数传给形参，缺省为undefined。然后将这个活动对象作为作用域链的最前端，并将定义函数时所指向的活动对象添加到作用域链</p>
+<h6 id="u53D1_u751F_u6807_u8BC6_u7B26_u89E3_u6790_u65F6_uFF0C_u4ECE_u5F53_u524D_u6D3B_u52A8_u5BF9_u8C61_u5F00_u59CB_u4F9D_u6B21_u5F80_u540E_u67E5_u627E_u6807_u8BC6_u7B26_uFF0C_u5982_u679C_u4E00_u76F4_u627E_u4E0D_u5230_uFF0C_u5219_u8868_u793A_u8BE5_u6807_u8BC6_u7B26_u6CA1_u6709_u5B9A_u4E49"><a href="#u53D1_u751F_u6807_u8BC6_u7B26_u89E3_u6790_u65F6_uFF0C_u4ECE_u5F53_u524D_u6D3B_u52A8_u5BF9_u8C61_u5F00_u59CB_u4F9D_u6B21_u5F80_u540E_u67E5_u627E_u6807_u8BC6_u7B26_uFF0C_u5982_u679C_u4E00_u76F4_u627E_u4E0D_u5230_uFF0C_u5219_u8868_u793A_u8BE5_u6807_u8BC6_u7B26_u6CA1_u6709_u5B9A_u4E49" class="headerlink" title="发生标识符解析时，从当前活动对象开始依次往后查找标识符，如果一直找不到，则表示该标识符没有定义"></a>发生标识符解析时，从当前活动对象开始依次往后查找标识符，如果一直找不到，则表示该标识符没有定义</h6><h4 id="u4E3E_u4E2A_u6817_u5B50"><a href="#u4E3E_u4E2A_u6817_u5B50" class="headerlink" title="举个栗子"></a>举个栗子</h4><pre><code>var name = &apos;andy&apos;;
 function echo() {
      alert(name);
 }
@@ -257,29 +262,32 @@ function env() {
      echo();
 }
 
-env();  //andy
-</code></pre><h6 id="u5B9A_u4E49echo_u51FD_u6570_u65F6_u7684_u9876_u7EA7_u6D3B_u52A8_u5BF9_u8C61_u662F_u5168_u5C40_u6D3B_u52A8_u5BF9_u8C61"><a href="#u5B9A_u4E49echo_u51FD_u6570_u65F6_u7684_u9876_u7EA7_u6D3B_u52A8_u5BF9_u8C61_u662F_u5168_u5C40_u6D3B_u52A8_u5BF9_u8C61" class="headerlink" title="定义echo函数时的顶级活动对象是全局活动对象"></a>定义echo函数时的顶级活动对象是全局活动对象</h6><pre><code>[[scope chain]] = [
-{
-     name : &apos;andy&apos;,
-}, {
-     window call object
-}
-]
-</code></pre><h6 id="u8C03_u7528_u51FD_u6570echo_u65F6_uFF0C_u5C06echo_u6D3B_u52A8_u5BF9_u8C61_u6DFB_u52A0_u5230_u4F5C_u7528_u57DF_u94FE_u7684_u6700_u524D_u7AEF"><a href="#u8C03_u7528_u51FD_u6570echo_u65F6_uFF0C_u5C06echo_u6D3B_u52A8_u5BF9_u8C61_u6DFB_u52A0_u5230_u4F5C_u7528_u57DF_u94FE_u7684_u6700_u524D_u7AEF" class="headerlink" title="调用函数echo时，将echo活动对象添加到作用域链的最前端"></a>调用函数echo时，将echo活动对象添加到作用域链的最前端</h6><pre><code>[[scope chain]] = [
-{
-    echo call object
-},{
-     name : &apos;andy&apos;,
-}, {
-     window call object
-}
-]
-</code></pre><h6 id="u53D1_u751Fname_u6807_u8BC6_u7B26_u89E3_u6790_u65F6_uFF0C_u627E_u5230_u5168_u5C40_u53D8_u91CF_u503C_uFF0C_u56E0_u800C_u8F93_u51FA_u7B54_u6848_u662Fandy_u3002_u4ECE_u4E0A_u9762_u7684_u4F5C_u7528_u57DF_u94FE_u53EF_u4EE5_u770B_u51FA_u6765env_u51FD_u6570_u4E2D_u7684_u5C40_u90E8_u53D8_u91CFname_u6839_u672C_u4E0D_u5728_u4F5C_u7528_u57DF_u94FE_u4E2D_uFF0C_u6240_u4EE5_u5982_u679C_u8FD9_u91CC_u6CA1_u6709_u5168_u5C40_u53D8_u91CF_uFF0C_u90A3_u4E48name_u5C06_u662F_u4E00_u4E2A_u672A_u5B9A_u4E49_u7684_u53D8_u91CF_28_u5176_u5B9E_u6211_u8BF4_u8C0E_u4E86_uFF0Cwindow-name_u6709_u9ED8_u8BA4_u503C_u7A7A_u683C_uFF0C_u5982_u679C_u5728_u5168_u5C40_u6D3B_u52A8_u5BF9_u8C61_u4E2D_u53EF_u4EE5_u627E_u5230name_29"><a href="#u53D1_u751Fname_u6807_u8BC6_u7B26_u89E3_u6790_u65F6_uFF0C_u627E_u5230_u5168_u5C40_u53D8_u91CF_u503C_uFF0C_u56E0_u800C_u8F93_u51FA_u7B54_u6848_u662Fandy_u3002_u4ECE_u4E0A_u9762_u7684_u4F5C_u7528_u57DF_u94FE_u53EF_u4EE5_u770B_u51FA_u6765env_u51FD_u6570_u4E2D_u7684_u5C40_u90E8_u53D8_u91CFname_u6839_u672C_u4E0D_u5728_u4F5C_u7528_u57DF_u94FE_u4E2D_uFF0C_u6240_u4EE5_u5982_u679C_u8FD9_u91CC_u6CA1_u6709_u5168_u5C40_u53D8_u91CF_uFF0C_u90A3_u4E48name_u5C06_u662F_u4E00_u4E2A_u672A_u5B9A_u4E49_u7684_u53D8_u91CF_28_u5176_u5B9E_u6211_u8BF4_u8C0E_u4E86_uFF0Cwindow-name_u6709_u9ED8_u8BA4_u503C_u7A7A_u683C_uFF0C_u5982_u679C_u5728_u5168_u5C40_u6D3B_u52A8_u5BF9_u8C61_u4E2D_u53EF_u4EE5_u627E_u5230name_29" class="headerlink" title="发生name标识符解析时，找到全局变量值，因而输出答案是andy。从上面的作用域链可以看出来env函数中的局部变量name根本不在作用域链中，所以如果这里没有全局变量，那么name将是一个未定义的变量(其实我说谎了，window.name有默认值空格，如果在全局活动对象中可以找到name)."></a>发生name标识符解析时，找到全局变量值，因而输出答案是andy。从上面的作用域链可以看出来env函数中的局部变量name根本不在作用域链中，所以如果这里没有全局变量，那么name将是一个未定义的变量(其实我说谎了，window.name有默认值空格，如果在全局活动对象中可以找到name).</h6><h4 id="u518D_u6765_u4E00_u4E2A_u590D_u6742_u70B9_u7684_u6817_u5B50"><a href="#u518D_u6765_u4E00_u4E2A_u590D_u6742_u70B9_u7684_u6817_u5B50" class="headerlink" title="再来一个复杂点的栗子"></a>再来一个复杂点的栗子</h4><pre><code>function factory() {
- var name = &apos;laruence&apos;;
- var intro = function(){
+env();  //andy  
+</code></pre><p>定义echo函数时的顶级活动对象是全局活动对象  </p>
+<pre><code>[[scope chain]] = [
+    {
+         name : &apos;andy&apos;,
+    }, {
+         window call object
+    }
+]  
+</code></pre><p>调用函数echo时，将echo活动对象添加到作用域链的最前端  </p>
+<pre><code>[[scope chain]] = [
+    {
+        echo call object
+    },{
+         name : &apos;andy&apos;,
+    }, {
+         window call object
+    }
+]  
+</code></pre><p>发生name标识符解析时，找到全局变量值，因而输出答案是andy。从上面的作用域链可以看出来env函数中的局部变量name根本不在作用域链中，所以如果这里没有全局变量，那么name将是一个未定义的变量(其实我说谎了，window.name有默认值空格，如果在全局活动对象中可以找到name).</p>
+<h4 id="u518D_u6765_u4E00_u4E2A_u590D_u6742_u70B9_u7684_u6817_u5B50"><a href="#u518D_u6765_u4E00_u4E2A_u590D_u6742_u70B9_u7684_u6817_u5B50" class="headerlink" title="再来一个复杂点的栗子"></a>再来一个复杂点的栗子</h4><pre><code>function factory() {
+     var name = &apos;laruence&apos;;
+     var intro = function(){
       alert(&apos;I am &apos; + name);
- }
- return intro;
+     }
+     return intro;
 }
 
 function app(para){

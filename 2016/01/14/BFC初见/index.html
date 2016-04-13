@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://i.imgur.com/VIEKx92.png">
 <meta property="og:image" content="http://i.imgur.com/xHw7NvJ.png">
 <meta property="og:image" content="http://i.imgur.com/fzQTvt7.png">
-<meta property="og:updated_time" content="2016-03-22T08:49:16.738Z">
+<meta property="og:updated_time" content="2016-04-13T12:40:51.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC初见">
 <meta name="twitter:description" content="背景：接触到BFC源于写布局时遇到的一个坑。本来是想将一个绿色div包含在一个红色div中，margin为30px,代码如下&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
@@ -142,7 +142,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
 					</div>
 				</section>
 				
@@ -242,7 +242,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
 	</div>
 
         
@@ -298,15 +298,15 @@
 <li>计算BFC的高度时需要计算浮动元素的高度</li>
 <li>BFC就是页面上的一个独立的容器，容器内的元素不影响外部元素。外部元素也不会影响容器内部元素</li>
 </ol>
-<hr>
 <h4 id="u90A3_u600E_u4E48_u4EA7_u751FBFC_u5462_uFF1F"><a href="#u90A3_u600E_u4E48_u4EA7_u751FBFC_u5462_uFF1F" class="headerlink" title="那怎么产生BFC呢？"></a>那怎么产生BFC呢？</h4><ol>
 <li>float的值不为none</li>
 <li>overflow的值不为visible</li>
 <li>display的值为table-cell,table-caption,inline-block中的任何一个</li>
-<li>position的值不为relative和static</li>
+<li>position的值不为relative和static  </li>
 </ol>
-<hr>
-<h4 id="u5F53_u4E00_u4E2Ahtml_u5143_u7D20_u6EE1_u8DB3_u4E0B_u9762_u6761_u4EF6_u4E2D_u7684_u4EFB_u4F55_u4E00_u70B9_u65F6_uFF0C_u90FD_u53EF_u4EE5_u4EA7_u751FBFC"><a href="#u5F53_u4E00_u4E2Ahtml_u5143_u7D20_u6EE1_u8DB3_u4E0B_u9762_u6761_u4EF6_u4E2D_u7684_u4EFB_u4F55_u4E00_u70B9_u65F6_uFF0C_u90FD_u53EF_u4EE5_u4EA7_u751FBFC" class="headerlink" title="当一个html元素满足下面条件中的任何一点时，都可以产生BFC"></a>当一个html元素满足下面条件中的任何一点时，都可以产生BFC</h4><h5 id="1_u3001_u5C31_u6BD4_u5982_u8BF4_u4E4B_u524D_u90A3_u4E2A_u6817_u5B50_uFF0C_u4E3A_u4EC0_u4E48_u8BBE_u7F6E_u4E86overflow_u5C5E_u6027_u4E3Ahidden_u4E4B_u540Emargin_u5C31_u662F_u76F8_u5BF9_u4E8E-main_div_u4E86_u5462_uFF1F_u56E0_u4E3A-main_div_u8FD9_u65F6_u5019_u662F_u4E00_u4E2ABFC_uFF0C_u4E0E_u5916_u90E8_u5143_u7D20_u65E0_u5173_uFF0C_u6240_u4EE5_u5185_u90E8_u5305_u542B_u7684div_u4E0A_u7684margin_u53EA_u80FD_u662F_u76F8_u5BF9_u4E8E-main_div"><a href="#1_u3001_u5C31_u6BD4_u5982_u8BF4_u4E4B_u524D_u90A3_u4E2A_u6817_u5B50_uFF0C_u4E3A_u4EC0_u4E48_u8BBE_u7F6E_u4E86overflow_u5C5E_u6027_u4E3Ahidden_u4E4B_u540Emargin_u5C31_u662F_u76F8_u5BF9_u4E8E-main_div_u4E86_u5462_uFF1F_u56E0_u4E3A-main_div_u8FD9_u65F6_u5019_u662F_u4E00_u4E2ABFC_uFF0C_u4E0E_u5916_u90E8_u5143_u7D20_u65E0_u5173_uFF0C_u6240_u4EE5_u5185_u90E8_u5305_u542B_u7684div_u4E0A_u7684margin_u53EA_u80FD_u662F_u76F8_u5BF9_u4E8E-main_div" class="headerlink" title="1、就比如说之前那个栗子，为什么设置了overflow属性为hidden之后margin就是相对于.main div了呢？因为.main div这时候是一个BFC，与外部元素无关，所以内部包含的div上的margin只能是相对于.main div"></a>1、就比如说之前那个栗子，为什么设置了overflow属性为hidden之后margin就是相对于.main div了呢？因为.main div这时候是一个BFC，与外部元素无关，所以内部包含的div上的margin只能是相对于.main div</h5><h4 id="2_u3001_u518D_u4E3E_u4E2A_u6817_u5B50_uFF1A_u81EA_u9002_u5E94_u4E24_u680F_u5E03_u5C40"><a href="#2_u3001_u518D_u4E3E_u4E2A_u6817_u5B50_uFF1A_u81EA_u9002_u5E94_u4E24_u680F_u5E03_u5C40" class="headerlink" title="2、再举个栗子：自适应两栏布局"></a>2、再举个栗子：自适应两栏布局</h4><pre><code>&lt;style type=&quot;text/css&quot;&gt;
+<p>当一个html元素满足上面条件中的任何一点时，都可以产生BFC<br>1、就比如说之前那个栗子，为什么设置了overflow属性为hidden之后margin就是相对于.main div了呢？因为.main div这时候是一个BFC，与外部元素无关，所以内部包含的div上的margin只能是相对于.main div  </p>
+<p>2、再举个栗子：自适应两栏布局  </p>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
     .main{
         float:left;
         background-color:red;
@@ -321,7 +321,7 @@
 
 &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;&lt;/div&gt;
-</code></pre><h6 id="u9875_u9762"><a href="#u9875_u9762" class="headerlink" title="页面"></a>页面</h6><p><img src="http://i.imgur.com/xHw7NvJ.png" alt=""></p>
+</code></pre><p><img src="http://i.imgur.com/xHw7NvJ.png" alt=""></p>
 <p>根据第3条规则，很清楚就可以知道，只要让.content div也成为一个BFC就可以了吧，so,在.content的css中加上overflow:hidden这条语句就ok了。</p>
 <h5 id="3_u3001_u8FD8_u6709_u4E00_u4E2A_u6817_u5B50_uFF0C_u6E05_u9664_u5185_u90E8_u6D6E_u52A8"><a href="#3_u3001_u8FD8_u6709_u4E00_u4E2A_u6817_u5B50_uFF0C_u6E05_u9664_u5185_u90E8_u6D6E_u52A8" class="headerlink" title="3、还有一个栗子，清除内部浮动"></a>3、还有一个栗子，清除内部浮动</h5><pre><code>&lt;style type=&quot;text/css&quot;&gt;
     .main{
