@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Andy的github博客</title>
+  <title>Andy的日志空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Andy的github博客">
+<meta property="og:title" content="Andy的日志空间">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Andy的github博客">
+<meta property="og:site_name" content="Andy的日志空间">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andy的github博客">
+<meta name="twitter:title" content="Andy的日志空间">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="Andy的github博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Andy的日志空间" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -194,6 +194,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-css-background-position" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/29/css-background-position/" class="article-date">
+  	<time datetime="2016-05-29T12:07:30.000Z" itemprop="datePublished">2016-05-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/29/css-background-position/">css background-position</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天重新看了一下background-position这个属性。以前在用的时候，没有想那么多，就觉得它就是一个背景图片的定位，没有什么值得注意。也不是说很难，只不过呢，如果不了解透彻了，用的时候就有点懵懵懂懂的，说不出个所以然来，我最不喜欢这种感觉了。
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/29/css-background-position/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-JavaScript函数参数传递" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -503,78 +563,6 @@ console.log(b);     //2
       
         <p class="article-more-link">
           <a  href="/2016/01/13/JavaScript作用域学习笔记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript原型学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/13/JavaScript原型学习笔记/" class="article-date">
-  	<time datetime="2016-01-13T13:04:21.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/JavaScript原型学习笔记/">JavaScript原型学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="u6211_u4EEC_u5728Java_u4E2D_u5B66_u8FC7_u7C7B_uFF0C_u53EF_u662F_u5728JavaScript_u4E2D_u6CA1_u6709_u7C7B_u8FD9_u4E2A_u6982_u5FF5_uFF0C_u66F4_u4E3A_u7075_u6D3B_u7684_u539F_u578B_u66FF_u4EE3_u4E86_u7C7B"><a href="#u6211_u4EEC_u5728Java_u4E2D_u5B66_u8FC7_u7C7B_uFF0C_u53EF_u662F_u5728JavaScript_u4E2D_u6CA1_u6709_u7C7B_u8FD9_u4E2A_u6982_u5FF5_uFF0C_u66F4_u4E3A_u7075_u6D3B_u7684_u539F_u578B_u66FF_u4EE3_u4E86_u7C7B" class="headerlink" title="我们在Java中学过类，可是在JavaScript中没有类这个概念，更为灵活的原型替代了类"></a>我们在Java中学过类，可是在JavaScript中没有类这个概念，更为灵活的原型替代了类</h5><p>JavaScript中没有类的概念，那怎样才能实现类的功能呢？起初有这么几个方法</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a> </h1><pre><code>function createPerson(name,age,job){
-    var o = new Object();
-    o.name = name;
-    o.age = age;
-    o.job = job;
-    o.sayName = function(){
-        console.log(this.name);
-    };
-    return o;
-}
-var person1 = createPerson(&quot;rose&quot;,20,&quot;student&quot;);
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/13/JavaScript原型学习笔记/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
